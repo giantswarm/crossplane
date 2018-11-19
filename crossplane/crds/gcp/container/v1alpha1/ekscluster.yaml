@@ -4,9 +4,9 @@ metadata:
   creationTimestamp: null
   labels:
     controller-tools.k8s.io: "1.0"
-  name: eksclusters.container.aws.crossplane.io
+  name: eksclusters.container.gcp.crossplane.io
 spec:
-  group: container.aws.crossplane.io
+  group: container.gcp.crossplane.io
   names:
     kind: EKSCluster
     plural: eksclusters

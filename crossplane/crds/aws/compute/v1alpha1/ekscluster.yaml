@@ -4,9 +4,9 @@ metadata:
   creationTimestamp: null
   labels:
     controller-tools.k8s.io: "1.0"
-  name: eksclusters.container.aws.crossplane.io
+  name: eksclusters.compute.aws.crossplane.io
 spec:
-  group: container.aws.crossplane.io
+  group: compute.aws.crossplane.io
   names:
     kind: EKSCluster
     plural: eksclusters
@@ -22,6 +22,10 @@ spec:
           type: object
         spec:
           properties:
+            claimRef:
+              type: object
+            classRef:
+              type: object
             cliInput:
               type: string
             clientRequestToken:
@@ -36,21 +40,27 @@ spec:
               type: object
             reclaimPolicy:
               type: string
-            resourcesVPCConfig:
-              type: string
             roleARN:
               type: string
+            securityGroupIds:
+              items:
+                type: string
+              type: array
+            subnetIds:
+              items:
+                type: string
+              type: array
           required:
           - roleARN
-          - resourcesVPCConfig
-          - clientRequestToken
-          - clusterVersion
+          - subnetIds
+          - securityGroupIds
           - providerRef
-          - connectionSecretRef
           type: object
         status:
           properties:
-            message:
+            endpoint:
+              type: string
+            resourceName:
               type: string
             state:
               type: string

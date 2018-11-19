@@ -4,12 +4,12 @@ metadata:
   creationTimestamp: null
   labels:
     controller-tools.k8s.io: "1.0"
-  name: eksclusters.container.aws.crossplane.io
+  name: gcpbuckets.storage.gcp.crossplane.io
 spec:
-  group: container.aws.crossplane.io
+  group: storage.gcp.crossplane.io
   names:
-    kind: EKSCluster
-    plural: eksclusters
+    kind: GCPBucket
+    plural: gcpbuckets
   scope: Namespaced
   validation:
     openAPIV3Schema:
@@ -22,37 +22,30 @@ spec:
           type: object
         spec:
           properties:
-            cliInput:
+            connectionSecretNameOverride:
               type: string
-            clientRequestToken:
+            location:
               type: string
-            clusterVersion:
+            name:
               type: string
-            connectionSecretRef:
-              type: object
-            generateCLISkeleton:
+            predefinedACL:
               type: string
             providerRef:
               type: object
-            reclaimPolicy:
+            storageClass:
               type: string
-            resourcesVPCConfig:
-              type: string
-            roleARN:
-              type: string
+            versioning:
+              type: boolean
           required:
-          - roleARN
-          - resourcesVPCConfig
-          - clientRequestToken
-          - clusterVersion
           - providerRef
-          - connectionSecretRef
           type: object
         status:
           properties:
+            connectionSecretRef:
+              type: object
             message:
               type: string
-            state:
+            providerID:
               type: string
           type: object
   version: v1alpha1

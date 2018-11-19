@@ -4,12 +4,12 @@ metadata:
   creationTimestamp: null
   labels:
     controller-tools.k8s.io: "1.0"
-  name: eksclusters.container.aws.crossplane.io
+  name: rdsinstances.database.aws.crossplane.io
 spec:
-  group: container.aws.crossplane.io
+  group: database.aws.crossplane.io
   names:
-    kind: EKSCluster
-    plural: eksclusters
+    kind: RDSInstance
+    plural: rdsinstances
   scope: Namespaced
   validation:
     openAPIV3Schema:
@@ -22,35 +22,47 @@ spec:
           type: object
         spec:
           properties:
-            cliInput:
+            claimRef:
+              type: object
+            class:
               type: string
-            clientRequestToken:
-              type: string
-            clusterVersion:
-              type: string
+            classRef:
+              type: object
             connectionSecretRef:
               type: object
-            generateCLISkeleton:
+            engine:
+              type: string
+            engineVersion:
+              type: string
+            masterUsername:
               type: string
             providerRef:
               type: object
             reclaimPolicy:
               type: string
-            resourcesVPCConfig:
-              type: string
-            roleARN:
-              type: string
+            securityGroups:
+              items:
+                type: string
+              type: array
+            size:
+              format: int64
+              type: integer
           required:
-          - roleARN
-          - resourcesVPCConfig
-          - clientRequestToken
-          - clusterVersion
+          - masterUsername
+          - engine
+          - class
+          - size
           - providerRef
-          - connectionSecretRef
           type: object
         status:
           properties:
+            endpoint:
+              type: string
+            instanceName:
+              type: string
             message:
+              type: string
+            providerID:
               type: string
             state:
               type: string

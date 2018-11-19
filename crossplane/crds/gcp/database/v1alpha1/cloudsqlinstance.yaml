@@ -4,12 +4,12 @@ metadata:
   creationTimestamp: null
   labels:
     controller-tools.k8s.io: "1.0"
-  name: eksclusters.container.aws.crossplane.io
+  name: cloudsqlinstances.database.gcp.crossplane.io
 spec:
-  group: container.aws.crossplane.io
+  group: database.gcp.crossplane.io
   names:
-    kind: EKSCluster
-    plural: eksclusters
+    kind: CloudsqlInstance
+    plural: cloudsqlinstances
   scope: Namespaced
   validation:
     openAPIV3Schema:
@@ -22,35 +22,40 @@ spec:
           type: object
         spec:
           properties:
-            cliInput:
-              type: string
-            clientRequestToken:
-              type: string
-            clusterVersion:
-              type: string
+            claimRef:
+              type: object
+            classRef:
+              type: object
             connectionSecretRef:
               type: object
-            generateCLISkeleton:
+            databaseVersion:
               type: string
             providerRef:
               type: object
             reclaimPolicy:
               type: string
-            resourcesVPCConfig:
+            region:
               type: string
-            roleARN:
+            storageType:
+              type: string
+            tier:
               type: string
           required:
-          - roleARN
-          - resourcesVPCConfig
-          - clientRequestToken
-          - clusterVersion
+          - tier
+          - region
+          - databaseVersion
+          - storageType
           - providerRef
-          - connectionSecretRef
           type: object
         status:
           properties:
+            endpoint:
+              type: string
+            instanceName:
+              type: string
             message:
+              type: string
+            providerID:
               type: string
             state:
               type: string
