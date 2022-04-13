@@ -1,0 +1,10 @@
+image:
+  repository: crossplane/crossplane
+  tag: v1.7.0
+  pullPolicy: IfNotPresent
+
+provider:
+  packages: []
+
+configuration:
+  packages: []
