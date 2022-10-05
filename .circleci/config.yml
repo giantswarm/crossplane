@@ -1,26 +1,26 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@4.15.0
+  architect: giantswarm/architect@4.24.0
 
 workflows:
   build:
     jobs:
-      # Ensure that for every commit to master and for every
+      # Ensure that for every commit to main and for every
       # release tag, there is an app version in the catalog.
       - architect/push-to-app-catalog:
           context: architect
-          name: push-to-app-catalog-master
+          name: push-to-app-catalog-main
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
           chart: "crossplane"
           filters:
             branches:
-              only: master
+              only: main
             tags:
               only: /^v.*/
 
-      # Ensure that for every commit (branch other than master)
+      # Ensure that for every commit (branch other than main)
       # there is an app version in the test catalog.
       - architect/push-to-app-catalog:
           context: architect
@@ -30,4 +30,4 @@ workflows:
           chart: "crossplane"
           filters:
             branches:
-              ignore: master
+              ignore: main
