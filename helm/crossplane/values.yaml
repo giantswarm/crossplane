@@ -1,3 +1,6 @@
+images:
+  registry: docker.io
+
 crds:
   install: true
   resources:

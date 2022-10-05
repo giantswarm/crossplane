@@ -2,6 +2,19 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "properties": {
+    "images": {
+      "type": "object",
+      "required": [
+        "registry"
+      ],
+      "properties": {
+        "registry": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
     "crds": {
       "type": "object",
       "required": ["install"],
