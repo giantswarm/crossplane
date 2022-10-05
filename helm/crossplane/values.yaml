@@ -1,7 +1,8 @@
-image:
-  repository: crossplane/crossplane
-  tag: v1.7.0
-  pullPolicy: IfNotPresent
+crossplane:
+  image:
+    repository: crossplane/crossplane
+    tag: v1.9.1
+    pullPolicy: IfNotPresent
 
 provider:
   packages: []
