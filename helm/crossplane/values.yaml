@@ -1,11 +1,9 @@
-crossplane:
-  image:
-    repository: crossplane/crossplane
-    tag: v1.9.1
-    pullPolicy: IfNotPresent
-
-provider:
-  packages: []
-
-configuration:
-  packages: []
+crds:
+  install: true
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "250m"
+    limits:
+      memory: "128Mi"
+      cpu: "500m"
