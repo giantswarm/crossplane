@@ -5,8 +5,7 @@ home: https://github.com/giantswarm/crossplane
 version: [[ .Version ]]
 appVersion: [[ .AppVersion ]]
 annotations:
-  application.giantswarm.io/team: "honeybadger
-  "
+  application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
 dependencies:
 - name: crossplane
