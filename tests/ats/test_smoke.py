@@ -25,9 +25,7 @@ def test_api_working(kube_cluster: Cluster) -> None:
 
 
 @pytest.mark.smoke
-def test_pods_available(
-    kube_cluster: Cluster
-) -> None:
+def test_pods_available(kube_cluster: Cluster) -> None:
     deployments = wait_for_deployments_to_run(
         kube_cluster.kube_client,
         [
