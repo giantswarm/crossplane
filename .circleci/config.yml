@@ -29,7 +29,7 @@ workflows:
               ignore:
                 - master
           requires:
-            - "push-to-app-catalog-pr"
+            - "package and push crossplane chart"
 
       - architect/run-tests-with-ats:
           name: execute chart tests - upgrade
