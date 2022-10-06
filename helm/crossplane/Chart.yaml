@@ -10,4 +10,3 @@ annotations:
 dependencies:
 - name: crossplane
   version: "1.9.1"
-  repository: "https://charts.crossplane.io/stable/"
