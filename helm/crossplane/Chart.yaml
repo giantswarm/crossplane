@@ -7,7 +7,3 @@ appVersion: "1.9.1"
 annotations:
   application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
-dependencies:
-- name: crossplane
-  version: "1.9.1"
-  repository: "https://charts.crossplane.io/stable/"
