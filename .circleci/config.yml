@@ -41,7 +41,7 @@ workflows:
               ignore:
                 - master
           requires:
-            - "package and push flux-app chart"
+            - "push-to-app-catalog-pr"
 
       - architect/run-tests-with-ats:
           name: execute chart tests - upgrade
