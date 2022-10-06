@@ -4,33 +4,21 @@ orbs:
   architect: giantswarm/architect@4.24.0
 
 workflows:
-  build:
+  package-and-push-chart-on-tag:
     jobs:
-      # Ensure that for every commit to main and for every
-      # release tag, there is an app version in the catalog.
       - architect/push-to-app-catalog:
-          context: architect
-          name: push-to-app-catalog-main
-          app_catalog: "giantswarm-playground-catalog"
+          context: "architect"
+          executor: "app-build-suite"
+          name: "package and push crossplane chart"
+          app_catalog: "giantswarm-playground-test-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
           chart: "crossplane"
+          persist_chart_archive: true
+          # Trigger job on git tag.
           filters:
-            branches:
-              only: main
             tags:
               only: /^v.*/
-
-      # Ensure that for every commit (branch other than main)
-      # there is an app version in the test catalog.
-      - architect/push-to-app-catalog:
-          context: architect
-          name: push-to-app-catalog-pr
-          app_catalog: "d"
-          app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "crossplane"
-          filters:
-            branches:
-              ignore: main
+          push_to_oci_registry: true
 
       - architect/run-tests-with-ats:
           name: execute chart tests - smoke and functional
