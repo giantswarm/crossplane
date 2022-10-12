@@ -1,8 +1,10 @@
 giantswarm:
   images:
     registry: quay.io
-  crossplane:
-    image: giantswarm/crossplane
+    crossplane:
+      image: giantswarm/crossplane
+      tag: v1.9.1
+    pullPolicy: IfNotPresent
 
   crds:
     install: true
@@ -17,11 +19,6 @@ giantswarm:
 replicas: 1
 
 deploymentStrategy: RollingUpdate
-
-image:
-  repository: crossplane/crossplane
-  tag: v1.9.1
-  pullPolicy: IfNotPresent
 
 nodeSelector: {}
 tolerations: {}

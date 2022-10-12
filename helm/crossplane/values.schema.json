@@ -31,17 +31,65 @@
         "extraEnvVarsRBACManager": {
             "type": "object"
         },
-        "image": {
+        "giantswarm": {
             "type": "object",
             "properties": {
-                "pullPolicy": {
-                    "type": "string"
+                "crds": {
+                    "type": "object",
+                    "properties": {
+                        "install": {
+                            "type": "boolean"
+                        },
+                        "resources": {
+                            "type": "object",
+                            "properties": {
+                                "limits": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cpu": {
+                                            "type": "string"
+                                        },
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "requests": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cpu": {
+                                            "type": "string"
+                                        },
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
-                "repository": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
+                "images": {
+                    "type": "object",
+                    "properties": {
+                        "crossplane": {
+                            "type": "object",
+                            "properties": {
+                                "image": {
+                                    "type": "string"
+                                },
+                                "tag": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "registry": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
         },

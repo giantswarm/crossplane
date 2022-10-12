@@ -42,7 +42,7 @@ spec:
       {{- end }}
       serviceAccountName: {{ template "crossplane.name" . }}
       initContainers:
-        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.tag }}"
           args:
           - core
           - init
@@ -54,7 +54,7 @@ spec:
           - --configuration
           - "{{ $arg }}"
           {{- end }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
           name: {{ .Chart.Name }}-init
           resources:
             {{- toYaml .Values.resourcesCrossplane | nindent 12 }}
@@ -78,14 +78,14 @@ spec:
             value: "9443"
           {{- end }}
       containers:
-      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.tag }}"
         args:
         - core
         - start
         {{- range $arg := .Values.args }}
         - {{ $arg }}
         {{- end }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
         name: {{ .Chart.Name }}
         resources:
           {{- toYaml .Values.resourcesCrossplane | nindent 12 }}
