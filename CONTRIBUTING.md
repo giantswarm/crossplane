@@ -7,7 +7,8 @@ The CRDs are located at: https://github.com/crossplane/crossplane/tree/master/cl
 
 The original Helm chart is located at: https://github.com/crossplane/crossplane/tree/master/cluster/charts/crossplane.
 
-- Copy all the contents of that folder into `helm/crossplane/`
+- Copy all the templates of that folder into `helm/crossplane/`
+- Copy the upstream `_helpers.tpl` file as `_crossplane_helpers.tpl`
 - Replace `values.yaml` with the contents of the new `values.yaml.tmpl`
   - Keep the `giantswarm` section of the original `values.yaml`
   - Remove `images` section of te upstream `values.yaml`, these are managed under `giantswarm.images` to utilize mirrors
