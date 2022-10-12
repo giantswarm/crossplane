@@ -1,4 +1,4 @@
-{{- if .Values.crds.install }}
+{{- if .Values.giantswarm.crds.install }}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: crossplane
+name: giantswarm-crossplane
 description: Tool to install crossplane in clusters.
 home: https://github.com/giantswarm/crossplane
 version: "0.1.0"
@@ -7,6 +7,3 @@ appVersion: "1.9.1"
 annotations:
   application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
-dependencies:
-- name: crossplane
-  version: "1.9.1"
