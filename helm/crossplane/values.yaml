@@ -3,7 +3,6 @@ giantswarm:
     registry: quay.io
     crossplane:
       image: giantswarm/crossplane
-      tag: v1.9.1
     pullPolicy: IfNotPresent
 
   crds:

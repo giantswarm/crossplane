@@ -12,7 +12,6 @@ The original Helm chart is located at: https://github.com/crossplane/crossplane/
 - Replace `values.yaml` with the contents of the new `values.yaml.tmpl`
   - Keep the `giantswarm` section of the original `values.yaml`
   - Remove `images` section of te upstream `values.yaml`, these are managed under `giantswarm.images` to utilize mirrors
-- Update Crossplane image version under `giantswarm.images.crossplane.tag`
 - Update all upstream crossplane go templates to use Giant Swarm image mirrors
 - You can delete `values.yaml.tmpl`
 - When done changing the `values.yaml` please regenerate `values.schema.yaml`
