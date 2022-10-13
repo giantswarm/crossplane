@@ -35,18 +35,18 @@ spec:
       {{- end }}
       serviceAccountName: rbac-manager
       initContainers:
-      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:v1.9.1"
         args:
         - rbac
         - init
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
         name: {{ .Chart.Name }}-init
         resources:
           {{- toYaml .Values.resourcesRBACManager | nindent 12 }}
         securityContext:
           {{- toYaml .Values.securityContextRBACManager | nindent 12 }}
       containers:
-      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:v1.9.1"
         args:
         - rbac
         - start
@@ -57,7 +57,7 @@ spec:
         - {{ $arg }}
         {{- end }}
         - --provider-clusterrole={{ template "crossplane.name" . }}:allowed-provider-permissions
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
         name: {{ .Chart.Name }}
         resources:
           {{- toYaml .Values.resourcesRBACManager | nindent 12 }}

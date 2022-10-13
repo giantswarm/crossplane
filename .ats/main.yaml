@@ -1,0 +1,7 @@
+smoke-tests-cluster-type: kind
+functional-tests-cluster-type: kind
+upgrade-tests-cluster-type: kind
+# TODO Update at some point when we release the app
+upgrade-tests-app-catalog-url: https://giantswarm.github.io/giantswarm-playground-test-catalog/
+# TODO Update at some point when we release the app
+upgrade-tests-app-version: 0.0.0-6f40d4ce3454b8f5d7ba6a4396f2d1d91d63489a

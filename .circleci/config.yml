@@ -1,33 +1,43 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@4.15.0
+  architect: giantswarm/architect@4.24.0
 
 workflows:
-  build:
+  package-and-push-chart-on-tag:
     jobs:
-      # Ensure that for every commit to master and for every
-      # release tag, there is an app version in the catalog.
       - architect/push-to-app-catalog:
-          context: architect
-          name: push-to-app-catalog-master
-          app_catalog: "giantswarm-playground-catalog"
+          context: "architect"
+          executor: "app-build-suite"
+          name: "package and push crossplane chart"
+          app_catalog: "giantswarm-playground-test-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
           chart: "crossplane"
+          persist_chart_archive: true
+          # Trigger job on git tag.
           filters:
-            branches:
-              only: master
             tags:
               only: /^v.*/
+          push_to_oci_registry: true
 
-      # Ensure that for every commit (branch other than master)
-      # there is an app version in the test catalog.
-      - architect/push-to-app-catalog:
-          context: architect
-          name: push-to-app-catalog-pr
-          app_catalog: "giantswarm-playground-catalog"
-          app_catalog_test: "giantswarm-playground-test-catalog"
-          chart: "crossplane"
+      - architect/run-tests-with-ats:
+          name: execute chart tests - smoke and functional
+          additional_app-test-suite_flags: "--skip-steps upgrade"
+          filters:
+            # Do not trigger the job on merge to master.
+            branches:
+              ignore:
+                - master
+          requires:
+            - "package and push crossplane chart"
+
+      - architect/run-tests-with-ats:
+          name: execute chart tests - upgrade
+          additional_app-test-suite_flags: "--skip-steps smoke functional"
+          app-test-suite_version: "v0.2.3-beta.1"
+          app-test-suite_container_tag: "0.2.3-beta.1"
           filters:
             branches:
-              ignore: master
+              only: /main#release#.*/
+          requires:
+            - "execute chart tests - smoke and functional"
