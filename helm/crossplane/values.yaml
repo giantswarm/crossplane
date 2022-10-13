@@ -1,6 +1,6 @@
 giantswarm:
   images:
-    registry: quay.io
+    registry: docker.io
     crossplane:
       image: giantswarm/crossplane
     pullPolicy: IfNotPresent
