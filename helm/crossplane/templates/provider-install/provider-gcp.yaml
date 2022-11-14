@@ -7,5 +7,10 @@ metadata:
   labels:
     {{- include "labels.selector" . | nindent 4 }}
 spec:
+  ignoreCrossplaneConstraints: {{ .Values.giantswarm.providers.config.ignoreCrossplaneConstraints }}
   package: "xpkg.upbound.io/crossplane-contrib/provider-gcp:{{ .Values.giantswarm.providers.gcp.version }}"
+  packagePullPolicy: {{ .Values.giantswarm.providers.config.packagePullPolicy }}
+  revisionActivationPolicy: {{ .Values.giantswarm.providers.config.revisionActivationPolicy }}
+  revisionHistoryLimit: {{ .Values.giantswarm.providers.config.revisionHistoryLimit }}
+  skipDependencyResolution: {{ .Values.giantswarm.providers.config.skipDependencyResolution }}
 {{ end }}

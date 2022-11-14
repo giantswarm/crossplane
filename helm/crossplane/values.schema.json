@@ -113,6 +113,26 @@
                                 }
                             }
                         },
+                        "config": {
+                            "type": "object",
+                            "properties": {
+                                "ignoreCrossplaneConstraints": {
+                                    "type": "boolean"
+                                },
+                                "packagePullPolicy": {
+                                    "type": "string"
+                                },
+                                "revisionActivationPolicy": {
+                                    "type": "string"
+                                },
+                                "revisionHistoryLimit": {
+                                    "type": "integer"
+                                },
+                                "skipDependencyResolution": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
                         "gcp": {
                             "type": "object",
                             "properties": {
