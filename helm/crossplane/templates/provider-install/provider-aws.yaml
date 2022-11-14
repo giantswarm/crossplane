@@ -1,0 +1,11 @@
+{{ if .Values.giantswarm.providers.aws.enabled }}
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-aws
+  namespace: {{ .Release.Namespace | quote }}
+  labels:
+    {{- include "labels.selector" . | nindent 4 }}
+spec:
+  package: "xpkg.upbound.io/crossplane-contrib/provider-aws:{{ .Values.giantswarm.providers.aws.version }}"
+{{ end }}

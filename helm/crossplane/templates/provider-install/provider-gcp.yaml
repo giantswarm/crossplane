@@ -1,0 +1,11 @@
+{{ if .Values.giantswarm.providers.gcp.enabled }}
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-gcp
+  namespace: {{ .Release.Namespace | quote }}
+  labels:
+    {{- include "labels.selector" . | nindent 4 }}
+spec:
+  package: "xpkg.upbound.io/crossplane-contrib/provider-gcp:{{ .Values.giantswarm.providers.gcp.version }}"
+{{ end }}

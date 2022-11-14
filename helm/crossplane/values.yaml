@@ -5,6 +5,17 @@ giantswarm:
       image: giantswarm/crossplane
     pullPolicy: IfNotPresent
 
+  providers:
+    aws:
+      enabled: false
+      version: v0.33.0
+    azure:
+      enabled: false
+      version: v0.20.0
+    gcp:
+      enabled: false
+      version: v0.22.0
+
   crds:
     install: true
     resources:
