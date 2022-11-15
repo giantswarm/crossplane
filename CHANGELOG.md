@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-11-15
+
 ### Added
 
 - Add support for a fixed set of Crossplane providers ([RFC](https://github.com/giantswarm/rfc/blob/main/crossplane/README.md)). It is automatically detected which one to install based on the Management Cluster's provider kind
@@ -17,5 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/app-operator/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/giantswarm/crossplane/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/giantswarm/crossplane/releases/tag/v0.1.0
