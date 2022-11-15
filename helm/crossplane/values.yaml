@@ -9,25 +9,23 @@ giantswarm:
     provider:
       kind: ""
 
-  providers:
-    config:
-      ignoreCrossplaneConstraints: false
-      packagePullPolicy: IfNotPresent
-      revisionActivationPolicy: Automatic
-      revisionHistoryLimit: 0
-      skipDependencyResolution: false
+  crossplane:
+    providers:
+      config:
+        ignoreCrossplaneConstraints: false
+        packagePullPolicy: IfNotPresent
+        revisionActivationPolicy: Automatic
+        revisionHistoryLimit: 0
+        skipDependencyResolution: false
 
-    aws:
-      enabled: false
-      version: v0.33.0
+      aws:
+        version: v0.33.0
 
-    azure:
-      enabled: false
-      version: v0.20.1
+      azure:
+        version: v0.20.1
 
-    gcp:
-      enabled: false
-      version: v0.22.0
+      gcp:
+        version: v0.22.0
 
   crds:
     install: true
