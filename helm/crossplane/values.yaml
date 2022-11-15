@@ -5,6 +5,10 @@ giantswarm:
       image: giantswarm/crossplane
     pullPolicy: IfNotPresent
 
+  kubernetes:
+    provider:
+      kind: ""
+
   providers:
     config:
       ignoreCrossplaneConstraints: false
@@ -13,17 +17,14 @@ giantswarm:
       revisionHistoryLimit: 0
       skipDependencyResolution: false
 
-    # https://marketplace.upbound.io/providers/upbound/provider-aws
     aws:
       enabled: false
       version: v0.33.0
 
-    # https://marketplace.upbound.io/providers/upbound/provider-azure
     azure:
       enabled: false
       version: v0.20.1
 
-    # https://marketplace.upbound.io/providers/upbound/provider-gcp
     gcp:
       enabled: false
       version: v0.22.0
