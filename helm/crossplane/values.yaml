@@ -5,6 +5,28 @@ giantswarm:
       image: giantswarm/crossplane
     pullPolicy: IfNotPresent
 
+  kubernetes:
+    provider:
+      kind: ""
+
+  crossplane:
+    providers:
+      config:
+        ignoreCrossplaneConstraints: false
+        packagePullPolicy: IfNotPresent
+        revisionActivationPolicy: Automatic
+        revisionHistoryLimit: 0
+        skipDependencyResolution: false
+
+      aws:
+        version: v0.33.0
+
+      azure:
+        version: v0.20.1
+
+      gcp:
+        version: v0.22.0
+
   crds:
     install: true
     resources:
