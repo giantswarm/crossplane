@@ -69,6 +69,60 @@
                         }
                     }
                 },
+                "crossplane": {
+                    "type": "object",
+                    "properties": {
+                        "providers": {
+                            "type": "object",
+                            "properties": {
+                                "aws": {
+                                    "type": "object",
+                                    "properties": {
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "azure": {
+                                    "type": "object",
+                                    "properties": {
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "config": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ignoreCrossplaneConstraints": {
+                                            "type": "boolean"
+                                        },
+                                        "packagePullPolicy": {
+                                            "type": "string"
+                                        },
+                                        "revisionActivationPolicy": {
+                                            "type": "string"
+                                        },
+                                        "revisionHistoryLimit": {
+                                            "type": "integer"
+                                        },
+                                        "skipDependencyResolution": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "gcp": {
+                                    "type": "object",
+                                    "properties": {
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "images": {
                     "type": "object",
                     "properties": {
@@ -88,58 +142,13 @@
                         }
                     }
                 },
-                "providers": {
+                "kubernetes": {
                     "type": "object",
                     "properties": {
-                        "aws": {
+                        "provider": {
                             "type": "object",
                             "properties": {
-                                "enabled": {
-                                    "type": "boolean"
-                                },
-                                "version": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "azure": {
-                            "type": "object",
-                            "properties": {
-                                "enabled": {
-                                    "type": "boolean"
-                                },
-                                "version": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "config": {
-                            "type": "object",
-                            "properties": {
-                                "ignoreCrossplaneConstraints": {
-                                    "type": "boolean"
-                                },
-                                "packagePullPolicy": {
-                                    "type": "string"
-                                },
-                                "revisionActivationPolicy": {
-                                    "type": "string"
-                                },
-                                "revisionHistoryLimit": {
-                                    "type": "integer"
-                                },
-                                "skipDependencyResolution": {
-                                    "type": "boolean"
-                                }
-                            }
-                        },
-                        "gcp": {
-                            "type": "object",
-                            "properties": {
-                                "enabled": {
-                                    "type": "boolean"
-                                },
-                                "version": {
+                                "kind": {
                                     "type": "string"
                                 }
                             }
