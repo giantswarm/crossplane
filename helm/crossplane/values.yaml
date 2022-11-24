@@ -21,26 +21,26 @@ giantswarm:
       aws:
         version: v0.33.0
         controllerConfig:
-          args: [ ]
+          args: []
           metadata:
-            annotations: { }
-            labels: { }
+            annotations: {}
+            labels: {}
 
       azure:
         version: v0.20.1
         controllerConfig:
-          args: [ ]
+          args: []
           metadata:
-            annotations: { }
-            labels: { }
+            annotations: {}
+            labels: {}
 
       gcp:
         version: v0.22.0
         controllerConfig:
-          args: [ ]
+          args: []
           metadata:
-            annotations: { }
-            labels: { }
+            annotations: {}
+            labels: {}
 
   crds:
     install: true
