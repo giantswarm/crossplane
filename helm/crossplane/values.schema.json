@@ -78,6 +78,26 @@
                                 "aws": {
                                     "type": "object",
                                     "properties": {
+                                        "controllerConfig": {
+                                            "additionalProperties": false,
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array"
+                                                },
+                                                "metadata": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "annotations": {
+                                                            "type": "object"
+                                                        },
+                                                        "labels": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "version": {
                                             "type": "string"
                                         }
@@ -86,6 +106,26 @@
                                 "azure": {
                                     "type": "object",
                                     "properties": {
+                                        "controllerConfig": {
+                                            "additionalProperties": false,
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array"
+                                                },
+                                                "metadata": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "annotations": {
+                                                            "type": "object"
+                                                        },
+                                                        "labels": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "version": {
                                             "type": "string"
                                         }
@@ -114,6 +154,26 @@
                                 "gcp": {
                                     "type": "object",
                                     "properties": {
+                                        "controllerConfig": {
+                                            "additionalProperties": false,
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array"
+                                                },
+                                                "metadata": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "annotations": {
+                                                            "type": "object"
+                                                        },
+                                                        "labels": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "version": {
                                             "type": "string"
                                         }

@@ -2,11 +2,13 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-aws
+  name: "{{- include "provider.aws.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "labels.selector" . | nindent 4 }}
 spec:
+  controllerConfigRef:
+    name: "{{- include "provider.aws.name" . }}"
   ignoreCrossplaneConstraints: {{ .Values.giantswarm.crossplane.providers.config.ignoreCrossplaneConstraints }}
   package: "xpkg.upbound.io/crossplane-contrib/provider-aws:{{ .Values.giantswarm.crossplane.providers.aws.version }}"
   packagePullPolicy: {{ .Values.giantswarm.crossplane.providers.config.packagePullPolicy }}

@@ -1,0 +1,11 @@
+{{ if eq .Values.giantswarm.kubernetes.provider.kind "gcp" }}
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: "{{- include "provider.gcp.name" . }}"
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  {{- with .Values.giantswarm.crossplane.providers.gcp.controllerConfig }}
+    {{- . | toYaml | nindent 2 }}
+  {{- end }}
+{{ end }}

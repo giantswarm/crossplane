@@ -2,11 +2,13 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-azure
+  name: "{{- include "provider.azure.name" . }}"v
   namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "labels.selector" . | nindent 4 }}
 spec:
+  controllerConfigRef:
+    name: "{{- include "provider.azure.name" . }}"
   ignoreCrossplaneConstraints: {{ .Values.giantswarm.crossplane.providers.config.ignoreCrossplaneConstraints }}
   package: "xpkg.upbound.io/crossplane-contrib/provider-azure:{{ .Values.giantswarm.crossplane.providers.azure.version }}"
   packagePullPolicy: {{ .Values.giantswarm.crossplane.providers.config.packagePullPolicy }}

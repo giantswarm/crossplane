@@ -2,11 +2,13 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-gcp
+  name: "{{- include "provider.gcp.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "labels.selector" . | nindent 4 }}
 spec:
+  controllerConfigRef:
+    name: "{{- include "provider.gcp.name" . }}"
   ignoreCrossplaneConstraints: {{ .Values.giantswarm.crossplane.providers.config.ignoreCrossplaneConstraints }}
   package: "xpkg.upbound.io/crossplane-contrib/provider-gcp:{{ .Values.giantswarm.crossplane.providers.gcp.version }}"
   packagePullPolicy: {{ .Values.giantswarm.crossplane.providers.config.packagePullPolicy }}
