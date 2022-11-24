@@ -78,6 +78,17 @@
                                 "aws": {
                                     "type": "object",
                                     "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "version": {
                                             "type": "string"
                                         }
@@ -86,6 +97,17 @@
                                 "azure": {
                                     "type": "object",
                                     "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "version": {
                                             "type": "string"
                                         }
@@ -114,6 +136,17 @@
                                 "gcp": {
                                     "type": "object",
                                     "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
                                         "version": {
                                             "type": "string"
                                         }

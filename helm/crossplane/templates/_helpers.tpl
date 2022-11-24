@@ -55,3 +55,15 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- define "controllerVolumeName" -}}
 {{- printf "%s-controller-%s-volume" (include "name" .) .volumeName -}}
 {{- end -}}
+
+{{- define "provider.aws.name" -}}
+{{- printf "provider-aws" -}}
+{{- end -}}
+
+{{- define "provider.azure.name" -}}
+{{- printf "provider-azure" -}}
+{{- end -}}
+
+{{- define "provider.gcp.name" -}}
+{{- printf "provider-gcp" -}}
+{{- end -}}

@@ -1,0 +1,14 @@
+{{ if eq .Values.giantswarm.kubernetes.provider.kind "azure" }}
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: "{{- include "provider.azure.name" . }}"
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  {{- with .Values.giantswarm.crossplane.providers.azure.controllerConfig.args }}
+  args:
+    {{- . | toYaml | nindent 4 }}
+  {{- end }}
+  # This is also a guard statement for the case when all other options are unset
+  replicas: 1
+{{ end }}
