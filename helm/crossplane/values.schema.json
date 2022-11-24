@@ -82,7 +82,10 @@
                                             "type": "object",
                                             "properties": {
                                                 "args": {
-                                                    "type": "array"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
                                                 }
                                             }
                                         },
@@ -98,7 +101,10 @@
                                             "type": "object",
                                             "properties": {
                                                 "args": {
-                                                    "type": "array"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
                                                 }
                                             }
                                         },
@@ -134,7 +140,10 @@
                                             "type": "object",
                                             "properties": {
                                                 "args": {
-                                                    "type": "array"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
                                                 }
                                             }
                                         },
