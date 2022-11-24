@@ -21,17 +21,20 @@ giantswarm:
       aws:
         version: v0.33.0
         controllerConfig:
-          args: []
+          args:
+            - -- debug
 
       azure:
         version: v0.20.1
         controllerConfig:
-          args: []
+          args:
+            - -- debug
 
       gcp:
         version: v0.22.0
         controllerConfig:
-          args: []
+          args:
+            - -- debug
 
   crds:
     install: true
