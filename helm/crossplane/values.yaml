@@ -23,18 +23,21 @@ giantswarm:
         controllerConfig:
           args:
             - -- debug
+          image: giantswarm/crossplane-provider-aws
 
       azure:
         version: v0.20.1
         controllerConfig:
           args:
             - -- debug
+          image: giantswarm/crossplane-provider-azure
 
       gcp:
         version: v0.22.0
         controllerConfig:
           args:
             - -- debug
+          image: giantswarm/crossplane-provider-gcp
 
   crds:
     install: true

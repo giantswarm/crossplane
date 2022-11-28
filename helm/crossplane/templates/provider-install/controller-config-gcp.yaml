@@ -9,6 +9,5 @@ spec:
   args:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
-  # This is also a guard statement for the case when all other options are unset
-  replicas: 1
+  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.gcp.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.gcp.version }}"
 {{ end }}
