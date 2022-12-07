@@ -1,4 +1,5 @@
-{{ if eq .Values.giantswarm.kubernetes.provider.kind "aws" }}
+{{ if .Capabilities.APIVersions.Has "pkg.crossplane.io/v1" }}
+{{ if or (eq .Values.giantswarm.kubernetes.provider.kind "aws") (eq .Values.giantswarm.kubernetes.provider.kind "capa") }}
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
@@ -15,4 +16,5 @@ spec:
   revisionActivationPolicy: {{ .Values.giantswarm.crossplane.providers.config.revisionActivationPolicy }}
   revisionHistoryLimit: {{ .Values.giantswarm.crossplane.providers.config.revisionHistoryLimit }}
   skipDependencyResolution: {{ .Values.giantswarm.crossplane.providers.config.skipDependencyResolution }}
+{{ end }}
 {{ end }}

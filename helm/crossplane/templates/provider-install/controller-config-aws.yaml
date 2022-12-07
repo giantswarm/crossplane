@@ -1,4 +1,5 @@
-{{ if eq .Values.giantswarm.kubernetes.provider.kind "aws" }}
+{{ if .Capabilities.APIVersions.Has "pkg.crossplane.io/v1alpha1" }}
+{{ if or (eq .Values.giantswarm.kubernetes.provider.kind "aws") (eq .Values.giantswarm.kubernetes.provider.kind "capa") }}
 apiVersion: pkg.crossplane.io/v1alpha1
 kind: ControllerConfig
 metadata:
@@ -10,4 +11,5 @@ spec:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
   image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.aws.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.aws.version }}"
+{{ end }}
 {{ end }}
