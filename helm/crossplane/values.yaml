@@ -1,11 +1,57 @@
+giantswarm:
+  images:
+    registry: docker.io
+    crossplane:
+      image: giantswarm/crossplane
+    pullPolicy: IfNotPresent
+
+  kubernetes:
+    provider:
+      kind: ""
+
+  crossplane:
+    providers:
+      config:
+        ignoreCrossplaneConstraints: false
+        packagePullPolicy: IfNotPresent
+        revisionActivationPolicy: Automatic
+        revisionHistoryLimit: 0
+        skipDependencyResolution: false
+
+      aws:
+        version: v0.33.0
+        controllerConfig:
+          args:
+            - --debug
+          image: giantswarm/crossplane-provider-aws
+
+      azure:
+        version: v0.20.1
+        controllerConfig:
+          args:
+            - --debug
+          image: giantswarm/crossplane-provider-azure
+
+      gcp:
+        version: v0.22.0
+        controllerConfig:
+          args:
+            - --debug
+          image: giantswarm/crossplane-provider-gcp
+
+  crds:
+    install: true
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "265Mi"
+        cpu: "500m"
+
 replicas: 1
 
 deploymentStrategy: RollingUpdate
-
-image:
-  repository: crossplane/crossplane
-  tag: %%VERSION%%
-  pullPolicy: IfNotPresent
 
 nodeSelector: {}
 tolerations: {}
