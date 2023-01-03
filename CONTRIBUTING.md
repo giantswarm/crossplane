@@ -22,27 +22,32 @@ To update using the git-subtree method, follows this steps:
   ```
   git checkout v1.9.1
   ```
-- Extract the chart directory in the current version to a temporary branch
+- Extract the chart directory in the current version to a temporary branch and CRDs directory to another one
   ```
   git subtree split -P cluster/charts/ -b temp-split-branch
+  git subtree split -P cluster/crds -b temp-split-branch-crds
   ```
-- Switch to the branch where you want to merge the upstream changes to, merge them, and cleanup the temporary branch
+- Switch to the branch where you want to merge the upstream changes to, merge them, and cleanup the temporary branches (optional, but recommended: add notes to the merge commits)
   ```
   git checkout upgrade-to-v1.9.1
   git subtree merge --squash -P helm/ temp-split-branch
+  git notes add -m "updated to crossplane tag v1.9.1 - helm chart"
+  git subtree merge --squash -P helm/crossplane/crd-base temp-split-branch-crds
+  git notes add -m "updated to crossplane tag v1.9.1 - CRDs"
   git branch -D temp-split-branch
+  git branch -D temp-split-branch-crds
   ```
 - Do any changes necessary on top of the merged update, including necessary manual work:
-  - When done changing the `values.yaml` please regenerate `values.schema.yaml`
+  - When done changing the `values.yaml` (either from upstream or manually), please regenerate `values.schema.yaml`
   with `helm schema-gen helm/crossplane/values.yaml > helm/crossplane/values.schema.json`
   - Update the `Chart.yaml` of the App Chart in `helm/crossplane/Chart.yaml`:
     - Update `version`, `upstreamchartVersion` and `appVersion` to the upgraded Crossplane version
-  - update the CRDs that are located at: https://github.com/crossplane/crossplane/tree/master/cluster/crds.
-    - Copy them over to `helm/crossplane/crd-base` and remove the `pkg.crossplane.io_` prefixes from the file names, because
-    they are used as ConfigMap names by the CRD install job, and must be a [valid DNS subdomain name](https://kubernetes.io/docs/concepts/configuration/configmap/#configmap-object).
 
 - Create a PR on github from `upgrade-to-v1.9.1` to `main`, *making sure you won't remove git's subtree info*!!! The subtree info is a a commit's comment that looks like
   ```
     git-subtree-dir: helm
     git-subtree-split: 4e15d71f2947056172bfae8f3cee149c1cb9be0d
   ```
+  - The above means that you *cannot* do a squash PR with commit message arbitrarly edited/removed. The recommended (for visibility) way
+  is to create a merge commit PR, where there are only 3 commits present: 'subtree merge's for chart and CRDs and all your
+  manual changes performed on top squashed to 1 commit

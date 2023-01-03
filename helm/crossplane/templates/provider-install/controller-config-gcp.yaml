@@ -1,0 +1,15 @@
+{{ if .Capabilities.APIVersions.Has "pkg.crossplane.io/v1alpha1" }}
+{{ if eq .Values.giantswarm.kubernetes.provider.kind "gcp" }}
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: "{{- include "provider.gcp.name" . }}"
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  {{- with .Values.giantswarm.crossplane.providers.gcp.controllerConfig.args }}
+  args:
+    {{- . | toYaml | nindent 4 }}
+  {{- end }}
+  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.gcp.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.gcp.version }}"
+{{ end }}
+{{ end }}
