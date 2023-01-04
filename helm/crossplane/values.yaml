@@ -76,8 +76,7 @@ provider:
 configuration:
   packages: []
 
-imagePullSecrets:
-- dockerhub
+imagePullSecrets: {}
 
 registryCaBundleConfig: {}
 
