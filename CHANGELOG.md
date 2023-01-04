@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- crossplane upgraded to v1.10.1
+- crossplane-contrib/provider-aws upgraded to v0.35.0
+- crossplane version extracted to `_helper_version.tpl` to avoid changing it in 4 places
+- `Secrets` access permissions are removed from the `crossplane:aggregate-to-edit` to allow for secure usage of `rbac-manager` in
+Giant Swarm clusters
+
+## [0.3.2] - 2023-01-03
+
+### Changed
+
+- Update path switched to git subtrees, while keeping exactly the same app version (no tag created on purpose)
+
 ## [0.3.1] - 2022-12-07
 
 ### Fixed

@@ -42,7 +42,7 @@ spec:
       {{- end }}
       serviceAccountName: {{ template "crossplane.name" . }}
       initContainers:
-        - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:v1.9.1"
+        - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
           args:
           - core
           - init
@@ -82,7 +82,7 @@ spec:
             value: "9443"
           {{- end }}
       containers:
-      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:v1.9.1"
+      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
         args:
         - core
         - start

@@ -200,10 +200,7 @@
             }
         },
         "imagePullSecrets": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
+            "type": "object"
         },
         "leaderElection": {
             "type": "boolean"
