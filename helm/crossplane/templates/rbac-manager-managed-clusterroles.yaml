@@ -121,11 +121,6 @@ rules:
 - apiGroups: [""]
   resources: [events]
   verbs: [get, list, watch]
-# Crossplane editors must create provider credential secrets, and may need to
-# read or otherwise interact with connection secrets.
-- apiGroups: [""]
-  resources: [secrets]
-  verbs: ["*"]
 # Crossplane editors may see which namespaces exist, but not edit them.
 - apiGroups: [""]
   resources: [namespaces]

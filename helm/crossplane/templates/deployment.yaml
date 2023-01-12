@@ -42,7 +42,7 @@ spec:
       {{- end }}
       serviceAccountName: {{ template "crossplane.name" . }}
       initContainers:
-        - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:v1.9.1"
+        - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
           args:
           - core
           - init
@@ -65,6 +65,10 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
+          - name: POD_SERVICE_ACCOUNT
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.serviceAccountName
           {{- if .Values.webhooks.enabled }}
           - name: "WEBHOOK_TLS_SECRET_NAME"
             value: webhook-tls-secret
@@ -78,7 +82,7 @@ spec:
             value: "9443"
           {{- end }}
       containers:
-      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:v1.9.1"
+      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
         args:
         - core
         - start
