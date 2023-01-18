@@ -8,4 +8,5 @@ spec:
   egress:
   - toEntities:
     - kube-apiserver
+  endpointSelector: {}
 {{- end }}
