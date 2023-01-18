@@ -1,3 +1,4 @@
+{{- if semverCompare "<1.25-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
@@ -80,3 +81,4 @@ roleRef:
   kind: ClusterRole
   name: {{ template "crossplane.name" . }}-use-psp
   apiGroup: rbac.authorization.k8s.io
+{{- end }}
