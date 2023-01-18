@@ -35,8 +35,21 @@ spec:
         - |
           set -o errexit ; set -o xtrace ; set -o nounset
 
+
           # piping stderr to stdout means kubectl's errors are surfaced
           # in the pod's logs.
+          #
+          kubectl -n {{ .Release.Namespace }} create -f 2>&1 - << EOF
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-cluster-access
+spec:
+  egress:
+  - toEntities:
+    - kube-apiserver
+  endpointSelector: {}
+EOF
 
           kubectl apply -f /data/ 2>&1
         securityContext:
