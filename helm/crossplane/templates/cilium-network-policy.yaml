@@ -1,0 +1,18 @@
+{{- if .Capabilities.APIVersions.Has "cilium.io/v2/CiliumNetworkPolicy" }}
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: {{ template "crossplane.name" . }}-access-apiserver
+  labels:
+    app: {{ template "crossplane.name" . }}
+    release: {{ .Release.Name }}
+    {{- include "crossplane.labels" . | indent 4 }}
+  {{- with .Values.customAnnotations }}
+  annotations: {{ toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  egress:
+  - toEntities:
+    - kube-apiserver
+  endpointSelector: {}
+{{- end }}
