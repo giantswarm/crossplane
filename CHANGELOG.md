@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - add info about crossplane providers deployed by default to CAPA and CAPZ clusters
 
+### Fixed
+
+- missing CiliumNetworkPolicy is now deployed as well (previously was deleted after CRD install Job succeeded)
+
 ## [0.4.1] - 2023-01-19
 
 ### Fixed
