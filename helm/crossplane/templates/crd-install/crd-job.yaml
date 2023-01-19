@@ -38,19 +38,6 @@ spec:
           # piping stderr to stdout means kubectl's errors are surfaced
           # in the pod's logs.
           #
-{{- if .Capabilities.APIVersions.Has "cilium.io/v2/CiliumNetworkPolicy" -}}
-          kubectl -n {{ .Release.Namespace }} create -f 2>&1 - << EOF
-          apiVersion: cilium.io/v2
-          kind: CiliumNetworkPolicy
-          metadata:
-            name: allow-cluster-access
-          spec:
-            egress:
-            - toEntities:
-              - kube-apiserver
-            endpointSelector: {}
-          EOF
-{{- end -}}
 
           kubectl apply -f /data/ 2>&1
         securityContext:
