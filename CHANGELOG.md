@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.4.1] - 2023-01-19
 
+### Fixed
+
+- chart now creates extra PSPs and also checks if it should create a NetworkPolicy or CiliumNetworkPolicy (fixes deploying to CAPA)
+
 ## [0.4.0] - 2023-01-12
 
 ### Changed
