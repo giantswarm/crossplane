@@ -160,6 +160,28 @@
                                             "type": "string"
                                         }
                                     }
+                                },
+                                "upboundAws": {
+                                    "type": "object",
+                                    "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
                                 }
                             }
                         }

@@ -56,6 +56,10 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- printf "%s-controller-%s-volume" (include "name" .) .volumeName -}}
 {{- end -}}
 
+{{- define "provider.upboundAws.name" -}}
+{{- printf "upbound-provider-aws" -}}
+{{- end -}}
+
 {{- define "provider.contribAws.name" -}}
 {{- printf "contrib-provider-aws" -}}
 {{- end -}}

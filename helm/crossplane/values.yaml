@@ -18,6 +18,13 @@ giantswarm:
         revisionHistoryLimit: 0
         skipDependencyResolution: false
 
+      upboundAws:
+        version: v0.27.0
+        controllerConfig:
+          args:
+            - --debug
+          image: giantswarm/upbound-provider-aws
+
       contribAws:
         version: v0.35.0
         controllerConfig:
