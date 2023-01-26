@@ -18,35 +18,21 @@ giantswarm:
         revisionHistoryLimit: 0
         skipDependencyResolution: false
 
-      aws:
+      contribAws:
         version: v0.35.0
         controllerConfig:
           args:
             - --debug
           image: giantswarm/crossplane-provider-aws
 
-      capa:
-        version: v0.35.0
-        controllerConfig:
-          args:
-            - --debug
-          image: giantswarm/crossplane-provider-aws
-
-      azure:
+      contribAzure:
         version: v0.20.1
         controllerConfig:
           args:
             - --debug
           image: giantswarm/crossplane-provider-azure
 
-      capz:
-        version: v0.20.1
-        controllerConfig:
-          args:
-            - --debug
-          image: giantswarm/crossplane-provider-azure
-
-      gcp:
+      contribGcp:
         version: v0.22.0
         controllerConfig:
           args:

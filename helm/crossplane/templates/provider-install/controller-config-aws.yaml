@@ -3,13 +3,13 @@
 apiVersion: pkg.crossplane.io/v1alpha1
 kind: ControllerConfig
 metadata:
-  name: "{{- include "provider.aws.name" . }}"
+  name: "{{- include "provider.contribAws.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
 spec:
-  {{- with .Values.giantswarm.crossplane.providers.aws.controllerConfig.args }}
+  {{- with .Values.giantswarm.crossplane.providers.contribAws.controllerConfig.args }}
   args:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
-  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.aws.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.aws.version }}"
+  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.contribAws.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.contribAws.version }}"
 {{ end }}
 {{ end }}

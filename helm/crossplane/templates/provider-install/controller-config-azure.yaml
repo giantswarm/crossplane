@@ -1,15 +1,15 @@
 {{ if .Capabilities.APIVersions.Has "pkg.crossplane.io/v1alpha1" }}
-{{ if eq .Values.giantswarm.kubernetes.provider.kind "azure" }}
+{{ if or (eq .Values.giantswarm.kubernetes.provider.kind "azure") (eq .Values.giantswarm.kubernetes.provider.kind "capz") }}
 apiVersion: pkg.crossplane.io/v1alpha1
 kind: ControllerConfig
 metadata:
-  name: "{{- include "provider.azure.name" . }}"
+  name: "{{- include "provider.contribAzure.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
 spec:
-  {{- with .Values.giantswarm.crossplane.providers.azure.controllerConfig.args }}
+  {{- with .Values.giantswarm.crossplane.providers.contribAzure.controllerConfig.args }}
   args:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
-  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.azure.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.azure.version }}"
+  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.contribAzure.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.contribAzure.version }}"
 {{ end }}
 {{ end }}

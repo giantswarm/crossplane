@@ -3,15 +3,15 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: "{{- include "provider.aws.name" . }}"
+  name: "{{- include "provider.contribAws.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "labels.selector" . | nindent 4 }}
 spec:
   controllerConfigRef:
-    name: "{{- include "provider.aws.name" . }}"
+    name: "{{- include "provider.contribAws.name" . }}"
   ignoreCrossplaneConstraints: {{ .Values.giantswarm.crossplane.providers.config.ignoreCrossplaneConstraints }}
-  package: "xpkg.upbound.io/crossplane-contrib/provider-aws:{{ .Values.giantswarm.crossplane.providers.aws.version }}"
+  package: "xpkg.upbound.io/crossplane-contrib/provider-aws:{{ .Values.giantswarm.crossplane.providers.contribAws.version }}"
   packagePullPolicy: {{ .Values.giantswarm.crossplane.providers.config.packagePullPolicy }}
   revisionActivationPolicy: {{ .Values.giantswarm.crossplane.providers.config.revisionActivationPolicy }}
   revisionHistoryLimit: {{ .Values.giantswarm.crossplane.providers.config.revisionHistoryLimit }}

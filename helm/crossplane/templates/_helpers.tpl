@@ -56,14 +56,14 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- printf "%s-controller-%s-volume" (include "name" .) .volumeName -}}
 {{- end -}}
 
-{{- define "provider.aws.name" -}}
-{{- printf "provider-aws" -}}
+{{- define "provider.contribAws.name" -}}
+{{- printf "contrib-provider-aws" -}}
 {{- end -}}
 
-{{- define "provider.azure.name" -}}
-{{- printf "provider-azure" -}}
+{{- define "provider.contribAzure.name" -}}
+{{- printf "contrib-provider-azure" -}}
 {{- end -}}
 
-{{- define "provider.gcp.name" -}}
-{{- printf "provider-gcp" -}}
+{{- define "provider.contribGcp.name" -}}
+{{- printf "contrib-provider-gcp" -}}
 {{- end -}}
