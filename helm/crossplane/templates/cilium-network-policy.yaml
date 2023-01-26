@@ -14,5 +14,7 @@ spec:
   egress:
   - toEntities:
     - kube-apiserver
+    - cluster
+    - world
   endpointSelector: {}
 {{- end }}
