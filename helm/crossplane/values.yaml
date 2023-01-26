@@ -32,19 +32,19 @@ giantswarm:
             - --debug
           image: giantswarm/crossplane-provider-aws
 
-      contribAzure:
-        version: v0.20.1
+      upboundAzure:
+        version: v0.26.0
         controllerConfig:
           args:
             - --debug
-          image: giantswarm/crossplane-provider-azure
+          image: giantswarm/upbound-provider-azure
 
-      contribGcp:
-        version: v0.22.0
+      upboundGcp:
+        version: v0.26.0
         controllerConfig:
           args:
             - --debug
-          image: giantswarm/crossplane-provider-gcp
+          image: giantswarm/upbound-provider-gcp
 
   crds:
     install: true

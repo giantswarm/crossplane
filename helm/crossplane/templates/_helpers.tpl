@@ -64,10 +64,10 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- printf "contrib-provider-aws" -}}
 {{- end -}}
 
-{{- define "provider.contribAzure.name" -}}
-{{- printf "contrib-provider-azure" -}}
+{{- define "provider.upboundAzure.name" -}}
+{{- printf "upbound-provider-azure" -}}
 {{- end -}}
 
-{{- define "provider.contribGcp.name" -}}
-{{- printf "contrib-provider-gcp" -}}
+{{- define "provider.upboundGcp.name" -}}
+{{- printf "upbound-provider-gcp" -}}
 {{- end -}}

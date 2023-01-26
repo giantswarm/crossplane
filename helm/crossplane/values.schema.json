@@ -117,51 +117,51 @@
                                         }
                                     }
                                 },
-                                "contribAzure": {
-                                    "type": "object",
-                                    "properties": {
-                                        "controllerConfig": {
-                                            "type": "object",
-                                            "properties": {
-                                                "args": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "image": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        },
-                                        "version": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "contribGcp": {
-                                    "type": "object",
-                                    "properties": {
-                                        "controllerConfig": {
-                                            "type": "object",
-                                            "properties": {
-                                                "args": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "image": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        },
-                                        "version": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
                                 "upboundAws": {
+                                    "type": "object",
+                                    "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "upboundAzure": {
+                                    "type": "object",
+                                    "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "upboundGcp": {
                                     "type": "object",
                                     "properties": {
                                         "controllerConfig": {

@@ -3,15 +3,15 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: "{{- include "provider.contribGcp.name" . }}"
+  name: "{{- include "provider.upboundGcp.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "labels.selector" . | nindent 4 }}
 spec:
   controllerConfigRef:
-    name: "{{- include "provider.contribGcp.name" . }}"
+    name: "{{- include "provider.upboundGcp.name" . }}"
   ignoreCrossplaneConstraints: {{ .Values.giantswarm.crossplane.providers.config.ignoreCrossplaneConstraints }}
-  package: "xpkg.upbound.io/crossplane-contrib/provider-gcp:{{ .Values.giantswarm.crossplane.providers.contribGcp.version }}"
+  package: "xpkg.upbound.io/upbound/provider-gcp:{{ .Values.giantswarm.crossplane.providers.upboundGcp.version }}"
   packagePullPolicy: {{ .Values.giantswarm.crossplane.providers.config.packagePullPolicy }}
   revisionActivationPolicy: {{ .Values.giantswarm.crossplane.providers.config.revisionActivationPolicy }}
   revisionHistoryLimit: {{ .Values.giantswarm.crossplane.providers.config.revisionHistoryLimit }}
