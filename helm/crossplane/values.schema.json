@@ -221,6 +221,43 @@
                             }
                         }
                     }
+                },
+                "verticalPodAutoscaler": {
+                    "type": "object",
+                    "properties": {
+                        "crossplane": {
+                            "type": "object",
+                            "properties": {
+                                "limits": {
+                                    "type": "object",
+                                    "properties": {
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "force": {
+                            "type": "boolean"
+                        },
+                        "rbacManager": {
+                            "type": "object",
+                            "properties": {
+                                "limits": {
+                                    "type": "object",
+                                    "properties": {
+                                        "memory": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },

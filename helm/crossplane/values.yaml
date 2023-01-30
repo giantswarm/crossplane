@@ -9,6 +9,19 @@ giantswarm:
     provider:
       kind: ""
 
+  # Allows VPA to be used if it's installed in the cluster
+  verticalPodAutoscaler:
+    enabled: false
+    # Enables bypassing "autoscaling.k8s.io/v1" check; use with care
+    force: false
+
+    crossplane:
+      limits:
+        memory: 1024Mi
+    rbacManager:
+      limits:
+        memory: 1024Mi
+
   crossplane:
     providers:
       config:
@@ -107,10 +120,10 @@ priorityClassName: ""
 resourcesCrossplane:
   limits:
     cpu: 100m
-    memory: 768Mi
+    memory: 512Mi
   requests:
     cpu: 100m
-    memory: 512Mi
+    memory: 256Mi
 
 securityContextCrossplane:
   runAsUser: 65532
@@ -126,10 +139,10 @@ packageCache:
 resourcesRBACManager:
   limits:
     cpu: 100m
-    memory: 768Mi
+    memory: 512Mi
   requests:
     cpu: 100m
-    memory: 512Mi
+    memory: 256Mi
 
 securityContextRBACManager:
   runAsUser: 65532

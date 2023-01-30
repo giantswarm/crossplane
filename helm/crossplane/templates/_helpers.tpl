@@ -56,6 +56,10 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- printf "%s-controller-%s-volume" (include "name" .) .volumeName -}}
 {{- end -}}
 
+{{- define "resource.vpa.enabled" -}}
+{{- if and (or (.Capabilities.APIVersions.Has "autoscaling.k8s.io/v1") (.Values.giantswarm.verticalPodAutoscaler.force)) (.Values.giantswarm.verticalPodAutoscaler.enabled) }}true{{ else }}false{{ end }}
+{{- end -}}
+
 {{- define "provider.upboundAws.name" -}}
 {{- printf "upbound-provider-aws" -}}
 {{- end -}}
