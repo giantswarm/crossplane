@@ -12,6 +12,7 @@ spec:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
   image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.contribAws.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.contribAws.version }}"
+  serviceAccountName: "{{- include "provider.contribAws.name" . }}"
 ---
 apiVersion: pkg.crossplane.io/v1alpha1
 kind: ControllerConfig
@@ -24,5 +25,6 @@ spec:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
   image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.upboundAws.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.upboundAws.version }}"
+  serviceAccountName: "{{- include "provider.upboundAws.name" . }}"
 {{ end }}
 {{ end }}
