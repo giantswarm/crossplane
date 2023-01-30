@@ -11,6 +11,5 @@ spec:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
   image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.upboundGcp.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.upboundGcp.version }}"
-  serviceAccountName: "{{- include "provider.upboundGcp.name" . }}"
 {{ end }}
 {{ end }}
