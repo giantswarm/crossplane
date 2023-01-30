@@ -11,7 +11,7 @@ giantswarm:
 
   # Allows VPA to be used if it's installed in the cluster
   verticalPodAutoscaler:
-    enabled: false
+    enabled: true
     # Enables bypassing "autoscaling.k8s.io/v1" check; use with care
     force: false
 
