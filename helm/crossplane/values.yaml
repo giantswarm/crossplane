@@ -63,10 +63,10 @@ giantswarm:
     install: true
     resources:
       requests:
-        memory: "64Mi"
+        memory: "256Mi"
         cpu: "250m"
       limits:
-        memory: "265Mi"
+        memory: "512Mi"
         cpu: "500m"
 
 replicas: 1
