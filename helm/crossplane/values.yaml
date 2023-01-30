@@ -75,7 +75,8 @@ serviceAccount:
   customAnnotations: {}
 
 leaderElection: true
-args: {}
+args:
+  - --debug
 
 provider:
   packages: []

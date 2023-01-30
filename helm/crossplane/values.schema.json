@@ -6,7 +6,10 @@
             "type": "object"
         },
         "args": {
-            "type": "object"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "configuration": {
             "type": "object",
