@@ -119,11 +119,11 @@ priorityClassName: ""
 
 resourcesCrossplane:
   limits:
-    cpu: 100m
-    memory: 512Mi
+    cpu: 500m
+    memory: 768Mi
   requests:
-    cpu: 100m
-    memory: 256Mi
+    cpu: 300m
+    memory: 512Mi
 
 securityContextCrossplane:
   runAsUser: 65532
@@ -138,11 +138,11 @@ packageCache:
 
 resourcesRBACManager:
   limits:
-    cpu: 100m
-    memory: 512Mi
+    cpu: 500m
+    memory: 768Mi
   requests:
-    cpu: 100m
-    memory: 256Mi
+    cpu: 300m
+    memory: 512Mi
 
 securityContextRBACManager:
   runAsUser: 65532
