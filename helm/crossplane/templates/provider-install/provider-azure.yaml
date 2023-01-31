@@ -3,7 +3,7 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: "{{- include "provider.upboundAzure.name" . }}"v
+  name: "{{- include "provider.upboundAzure.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "labels.selector" . | nindent 4 }}
