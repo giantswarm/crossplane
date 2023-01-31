@@ -60,6 +60,24 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- if and (or (.Capabilities.APIVersions.Has "autoscaling.k8s.io/v1") (.Values.giantswarm.verticalPodAutoscaler.force)) (.Values.giantswarm.verticalPodAutoscaler.enabled) }}true{{ else }}false{{ end }}
 {{- end -}}
 
+{{- define "resource.crossplane.resources" -}}
+requests:
+{{ toYaml .Values.resourcesCrossplane.requests | indent 2 -}}
+{{ if eq (include "resource.vpa.enabled" .) "false" }}
+limits:
+{{ toYaml .Values.resourcesCrossplane.limits | indent 2 -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "resource.rbacManager.resources" -}}
+requests:
+{{ toYaml .Values.resourcesRBACManager.requests | indent 2 -}}
+{{ if eq (include "resource.vpa.enabled" .) "false" }}
+limits:
+{{ toYaml .Values.resourcesRBACManager.limits | indent 2 -}}
+{{- end -}}
+{{- end -}}
+
 {{- define "provider.upboundAws.name" -}}
 {{- printf "upbound-provider-aws" -}}
 {{- end -}}

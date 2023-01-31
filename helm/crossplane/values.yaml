@@ -15,13 +15,6 @@ giantswarm:
     # Enables bypassing "autoscaling.k8s.io/v1" check; use with care
     force: false
 
-    crossplane:
-      limits:
-        memory: 1024Mi
-    rbacManager:
-      limits:
-        memory: 1024Mi
-
   crossplane:
     providers:
       config:
@@ -120,9 +113,9 @@ priorityClassName: ""
 resourcesCrossplane:
   limits:
     cpu: 500m
-    memory: 768Mi
+    memory: 1024Mi
   requests:
-    cpu: 300m
+    cpu: 250m
     memory: 512Mi
 
 securityContextCrossplane:
@@ -139,9 +132,9 @@ packageCache:
 resourcesRBACManager:
   limits:
     cpu: 500m
-    memory: 768Mi
+    memory: 1024Mi
   requests:
-    cpu: 300m
+    cpu: 250m
     memory: 512Mi
 
 securityContextRBACManager:

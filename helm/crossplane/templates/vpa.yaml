@@ -10,9 +10,15 @@ spec:
   resourcePolicy:
     containerPolicies:
       - containerName: {{ .Chart.Name }}
-        controlledValues: RequestsAndLimits
+        controlledResources:
+          - cpu
+          - memory
         maxAllowed:
-          memory: {{ .Values.giantswarm.verticalPodAutoscaler.crossplane.limits.memory }}
+          cpu: {{ .Values.resourcesCrossplane.limits.cpu }}
+          memory: {{ .Values.resourcesCrossplane.limits.memory }}
+        minAllowed:
+          cpu: {{ .Values.resourcesCrossplane.requests.cpu }}
+          memory: {{ .Values.resourcesCrossplane.requests.memory }}
         mode: Auto
   targetRef:
     apiVersion: apps/v1
@@ -30,9 +36,15 @@ spec:
   resourcePolicy:
     containerPolicies:
       - containerName: {{ .Chart.Name }}
-        controlledValues: RequestsAndLimits
+        controlledResources:
+          - cpu
+          - memory
         maxAllowed:
-          memory: {{ .Values.giantswarm.verticalPodAutoscaler.rbacManager.limits.memory }}
+          cpu: {{ .Values.resourcesRBACManager.limits.cpu }}
+          memory: {{ .Values.resourcesRBACManager.limits.memory }}
+        minAllowed:
+          cpu: {{ .Values.resourcesRBACManager.requests.cpu }}
+          memory: {{ .Values.resourcesRBACManager.requests.memory }}
         mode: Auto
   targetRef:
     apiVersion: apps/v1
