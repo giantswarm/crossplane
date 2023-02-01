@@ -56,14 +56,46 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- printf "%s-controller-%s-volume" (include "name" .) .volumeName -}}
 {{- end -}}
 
-{{- define "provider.aws.name" -}}
+{{- define "resource.vpa.enabled" -}}
+{{- if and (or (.Capabilities.APIVersions.Has "autoscaling.k8s.io/v1") (.Values.giantswarm.verticalPodAutoscaler.force)) (.Values.giantswarm.verticalPodAutoscaler.enabled) }}true{{ else }}false{{ end }}
+{{- end -}}
+
+{{- define "resource.crossplane.resources" -}}
+requests:
+{{ toYaml .Values.resourcesCrossplane.requests | indent 2 -}}
+{{ if eq (include "resource.vpa.enabled" .) "false" }}
+limits:
+{{ toYaml .Values.resourcesCrossplane.limits | indent 2 -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "resource.rbacManager.resources" -}}
+requests:
+{{ toYaml .Values.resourcesRBACManager.requests | indent 2 -}}
+{{ if eq (include "resource.vpa.enabled" .) "false" }}
+limits:
+{{ toYaml .Values.resourcesRBACManager.limits | indent 2 -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "provider.upboundAws.name" -}}
+{{- printf "upbound-provider-aws" -}}
+{{- end -}}
+
+{{/*
+Keep the old name for the community provider until we remove it to not mess up existing, used installations.
+
+The name matter because Crossplane sets this name as owner reference on the CRDs created for the provider and
+- at least currenttly - it cannot take over them on a rename and causes the controller to fail reconciling the provider.
+*/}}
+{{- define "provider.contribAws.name" -}}
 {{- printf "provider-aws" -}}
 {{- end -}}
 
-{{- define "provider.azure.name" -}}
-{{- printf "provider-azure" -}}
+{{- define "provider.upboundAzure.name" -}}
+{{- printf "upbound-provider-azure" -}}
 {{- end -}}
 
-{{- define "provider.gcp.name" -}}
-{{- printf "provider-gcp" -}}
+{{- define "provider.upboundGcp.name" -}}
+{{- printf "upbound-provider-gcp" -}}
 {{- end -}}

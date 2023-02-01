@@ -18,6 +18,7 @@ git fetch --tags upstream
 # make sure to keep at least 'main' branches in sync (also, any other branch you might want to use, like release branches)
 git merge upstream/master master
 git push origin master
+git push --tags
 
 # (optional) check that the tag you want to upgrade to is present in the repo
 git tag -l

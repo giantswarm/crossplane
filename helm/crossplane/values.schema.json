@@ -6,7 +6,10 @@
             "type": "object"
         },
         "args": {
-            "type": "object"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "configuration": {
             "type": "object",
@@ -75,50 +78,6 @@
                         "providers": {
                             "type": "object",
                             "properties": {
-                                "aws": {
-                                    "type": "object",
-                                    "properties": {
-                                        "controllerConfig": {
-                                            "type": "object",
-                                            "properties": {
-                                                "args": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "image": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        },
-                                        "version": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "azure": {
-                                    "type": "object",
-                                    "properties": {
-                                        "controllerConfig": {
-                                            "type": "object",
-                                            "properties": {
-                                                "args": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string"
-                                                    }
-                                                },
-                                                "image": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        },
-                                        "version": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
                                 "config": {
                                     "type": "object",
                                     "properties": {
@@ -139,7 +98,73 @@
                                         }
                                     }
                                 },
-                                "gcp": {
+                                "contribAws": {
+                                    "type": "object",
+                                    "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "upboundAws": {
+                                    "type": "object",
+                                    "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "upboundAzure": {
+                                    "type": "object",
+                                    "properties": {
+                                        "controllerConfig": {
+                                            "type": "object",
+                                            "properties": {
+                                                "args": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "upboundGcp": {
                                     "type": "object",
                                     "properties": {
                                         "controllerConfig": {
@@ -194,6 +219,17 @@
                                     "type": "string"
                                 }
                             }
+                        }
+                    }
+                },
+                "verticalPodAutoscaler": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "force": {
+                            "type": "boolean"
                         }
                     }
                 }

@@ -1,0 +1,55 @@
+{{ if eq (include "resource.vpa.enabled" .) "true" }}
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: {{ template "crossplane.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  resourcePolicy:
+    containerPolicies:
+      - containerName: {{ .Chart.Name }}
+        controlledResources:
+          - cpu
+          - memory
+        maxAllowed:
+          cpu: {{ .Values.resourcesCrossplane.limits.cpu }}
+          memory: {{ .Values.resourcesCrossplane.limits.memory }}
+        minAllowed:
+          cpu: {{ .Values.resourcesCrossplane.requests.cpu }}
+          memory: {{ .Values.resourcesCrossplane.requests.memory }}
+        mode: Auto
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ template "crossplane.name" . }}
+  updatePolicy:
+    updateMode: Auto
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: {{ template "crossplane.name" . }}-rbac-manager
+  namespace: {{ .Release.Namespace }}
+spec:
+  resourcePolicy:
+    containerPolicies:
+      - containerName: {{ .Chart.Name }}
+        controlledResources:
+          - cpu
+          - memory
+        maxAllowed:
+          cpu: {{ .Values.resourcesRBACManager.limits.cpu }}
+          memory: {{ .Values.resourcesRBACManager.limits.memory }}
+        minAllowed:
+          cpu: {{ .Values.resourcesRBACManager.requests.cpu }}
+          memory: {{ .Values.resourcesRBACManager.requests.memory }}
+        mode: Auto
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ template "crossplane.name" . }}-rbac-manager
+  updatePolicy:
+    updateMode: Auto
+{{ end }}

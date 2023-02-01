@@ -3,13 +3,13 @@
 apiVersion: pkg.crossplane.io/v1alpha1
 kind: ControllerConfig
 metadata:
-  name: "{{- include "provider.gcp.name" . }}"
+  name: "{{- include "provider.upboundGcp.name" . }}"
   namespace: {{ .Release.Namespace | quote }}
 spec:
-  {{- with .Values.giantswarm.crossplane.providers.gcp.controllerConfig.args }}
+  {{- with .Values.giantswarm.crossplane.providers.upboundGcp.controllerConfig.args }}
   args:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
-  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.gcp.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.gcp.version }}"
+  image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.upboundGcp.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.upboundGcp.version }}"
 {{ end }}
 {{ end }}
