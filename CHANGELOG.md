@@ -10,8 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - updated `crossplane` to `v1.10.2`
-- changed providers to the official `upbound` ones, for `aws` the `contrib` provider is kept along for now to support migration
-- renamed the community `aws` provider to `contrib-provider-aws` which might imply manual changes because of the owner references set by crossplane on the CRDs created for the provider
+- changed providers to the official `upbound` ones, for `aws` the community (`contrib`) provider is kept along as is for now to support migration
 - increased default resource limits for core `crossplane` components as we observed many OOM kills and so restarts with the current official providers
 
 ### Added
