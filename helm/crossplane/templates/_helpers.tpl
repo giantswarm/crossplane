@@ -82,8 +82,14 @@ limits:
 {{- printf "upbound-provider-aws" -}}
 {{- end -}}
 
+{{/*
+Keep the old name for the community provider until we remove it to not mess up existing, used installations.
+
+The name matter because Crossplane sets this name as owner reference on the CRDs created for the provider and
+- at least currenttly - it cannot take over them on a rename and causes the controller to fail reconciling the provider.
+*/}}
 {{- define "provider.contribAws.name" -}}
-{{- printf "contrib-provider-aws" -}}
+{{- printf "provider-aws" -}}
 {{- end -}}
 
 {{- define "provider.upboundAzure.name" -}}
