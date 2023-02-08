@@ -32,6 +32,7 @@ giantswarm:
           image: giantswarm/upbound-provider-aws
 
       contribAws:
+        enabled: false
         version: v0.35.0
         controllerConfig:
           args:

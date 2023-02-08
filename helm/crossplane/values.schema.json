@@ -115,6 +115,9 @@
                                                 }
                                             }
                                         },
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
                                         "version": {
                                             "type": "string"
                                         }
