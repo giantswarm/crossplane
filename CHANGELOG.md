@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- add `giantswarm.crossplane.providers.contribAws.enabled` Helm value to toggle comunity AWS provider, disabled by default
+
 ## [1.0.0] - 2023-02-01
 
 ### Changed
