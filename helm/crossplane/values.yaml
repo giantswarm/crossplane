@@ -21,7 +21,7 @@ giantswarm:
         ignoreCrossplaneConstraints: false
         packagePullPolicy: IfNotPresent
         revisionActivationPolicy: Automatic
-        revisionHistoryLimit: 0
+        revisionHistoryLimit: 1
         skipDependencyResolution: false
 
       upboundAws:
