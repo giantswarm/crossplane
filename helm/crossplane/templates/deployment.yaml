@@ -160,13 +160,13 @@ spec:
             name: webhook-tls-secret
           {{- end }}
       {{- if .Values.xfn.enabled }}
-      - image: {{ .Values.xfn.image.repository }}:{{ .Values.xfn.image.tag }}
+      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.xfn.image }}:{{ include "crossplane.version" .}}"
         args:
         - start
         {{- range $arg := .Values.xfn.args }}
         - {{ $arg }}
         {{- end }}
-        imagePullPolicy: {{ .Values.xfn.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
         name: {{ .Chart.Name }}-xfn
         resources:
           {{- toYaml .Values.xfn.resources | nindent 12 }}

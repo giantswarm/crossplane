@@ -3,6 +3,8 @@ giantswarm:
     registry: docker.io
     crossplane:
       image: giantswarm/crossplane
+    xfn:
+      image: giantswarm/crossplane-xfn
     pullPolicy: IfNotPresent
 
   kubernetes:
@@ -160,10 +162,6 @@ podSecurityContextRBACManager: {}
 # need to run Crossplane with --enable-composition-functions for it to call xfn.
 xfn:
   enabled: false
-  image:
-    repository: crossplane/xfn
-    tag: %%VERSION%%
-    pullPolicy: IfNotPresent
   args: {}
   extraEnvVars: {}
   securityContext:
