@@ -4,7 +4,7 @@ giantswarm:
     crossplane:
       image: giantswarm/crossplane
     xfn:
-      image: giantswarm/crossplane-xfn
+      image: giantswarm/xfn
     pullPolicy: IfNotPresent
 
   kubernetes:
