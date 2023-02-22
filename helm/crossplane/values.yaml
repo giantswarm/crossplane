@@ -5,10 +5,6 @@ giantswarm:
       image: giantswarm/crossplane
     pullPolicy: IfNotPresent
 
-  kubernetes:
-    provider:
-      kind: ""
-
   # Allows VPA to be used if it's installed in the cluster
   verticalPodAutoscaler:
     enabled: true

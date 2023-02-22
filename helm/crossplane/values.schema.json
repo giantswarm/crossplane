@@ -91,19 +91,6 @@
                         }
                     }
                 },
-                "kubernetes": {
-                    "type": "object",
-                    "properties": {
-                        "provider": {
-                            "type": "object",
-                            "properties": {
-                                "kind": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
                 "verticalPodAutoscaler": {
                     "type": "object",
                     "properties": {
