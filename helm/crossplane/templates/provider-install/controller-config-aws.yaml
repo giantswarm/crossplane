@@ -1,4 +1,3 @@
-{{ if .Capabilities.APIVersions.Has "pkg.crossplane.io/v1alpha1" }}
 {{ if or (eq .Values.giantswarm.kubernetes.provider.kind "aws") (eq .Values.giantswarm.kubernetes.provider.kind "capa") }}
 {{ if .Values.giantswarm.crossplane.providers.contribAws.enabled }}
 ---
@@ -26,5 +25,4 @@ spec:
     {{- . | toYaml | nindent 4 }}
   {{- end }}
   image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.crossplane.providers.upboundAws.controllerConfig.image }}:{{ .Values.giantswarm.crossplane.providers.upboundAws.version }}"
-{{ end }}
 {{ end }}
