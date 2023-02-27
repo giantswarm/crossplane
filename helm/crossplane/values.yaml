@@ -7,53 +7,11 @@ giantswarm:
       image: giantswarm/xfn
     pullPolicy: IfNotPresent
 
-  kubernetes:
-    provider:
-      kind: ""
-
   # Allows VPA to be used if it's installed in the cluster
   verticalPodAutoscaler:
     enabled: true
     # Enables bypassing "autoscaling.k8s.io/v1" check; use with care
     force: false
-
-  crossplane:
-    providers:
-      config:
-        ignoreCrossplaneConstraints: false
-        packagePullPolicy: IfNotPresent
-        revisionActivationPolicy: Automatic
-        revisionHistoryLimit: 0
-        skipDependencyResolution: false
-
-      upboundAws:
-        version: v0.28.0
-        controllerConfig:
-          args:
-            - --debug
-          image: giantswarm/upbound-provider-aws
-
-      contribAws:
-        enabled: false
-        version: v0.35.0
-        controllerConfig:
-          args:
-            - --debug
-          image: giantswarm/crossplane-provider-aws
-
-      upboundAzure:
-        version: v0.26.0
-        controllerConfig:
-          args:
-            - --debug
-          image: giantswarm/upbound-provider-azure
-
-      upboundGcp:
-        version: v0.26.0
-        controllerConfig:
-          args:
-            - --debug
-          image: giantswarm/upbound-provider-gcp
 
   crds:
     install: true
