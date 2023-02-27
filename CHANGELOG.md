@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2023-02-27
+
 ### Removed
 
 - remove support for provider management from the application chart
@@ -101,7 +103,8 @@ Giant Swarm clusters
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/crossplane/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/giantswarm/crossplane/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/giantswarm/crossplane/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/giantswarm/crossplane/compare/v0.4.3...v1.0.0
 [0.4.3]: https://github.com/giantswarm/crossplane/compare/v0.4.2...v0.4.3
