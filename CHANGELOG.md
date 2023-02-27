@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- remove support for provider management from the application chart
+
+### Changed
+
+- updated `crossplane` to `v1.11.0`
+
 ## [1.1.0] - 2023-02-08
 
 ### Added
 
-- add `giantswarm.crossplane.providers.contribAws.enabled` Helm value to toggle comunity AWS provider, disabled by default
+- add `giantswarm.crossplane.providers.contribAws.enabled` Helm value to toggle community AWS provider, disabled by default
 
 ## [1.0.0] - 2023-02-01
 
