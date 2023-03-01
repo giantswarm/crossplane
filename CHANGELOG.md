@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- disable leader election in default values since the default replica count is 1
+- add 'projected' volume to allowed ones in PSP
+
 ## [2.0.0] - 2023-02-27
 
 ### Removed
