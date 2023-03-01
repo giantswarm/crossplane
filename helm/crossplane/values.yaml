@@ -41,7 +41,7 @@ customAnnotations: {}
 serviceAccount:
   customAnnotations: {}
 
-leaderElection: true
+leaderElection: false
 args:
   - --debug
 
@@ -63,7 +63,7 @@ rbacManager:
   skipAggregatedClusterRoles: false
   replicas: 1
   managementPolicy: All
-  leaderElection: true
+  leaderElection: false
   args: {}
   nodeSelector: {}
   tolerations: []
