@@ -17,6 +17,12 @@ spec:
   scope: Cluster
   versions:
   - additionalPrinterColumns:
+    - jsonPath: .spec.compositeTypeRef.kind
+      name: XR-KIND
+      type: string
+    - jsonPath: .spec.compositeTypeRef.apiVersion
+      name: XR-APIVERSION
+      type: string
     - jsonPath: .metadata.creationTimestamp
       name: AGE
       type: date
@@ -400,8 +406,8 @@ spec:
                         type:
                           default: FromCompositeFieldPath
                           description: Type sets the patching behaviour to be used.
-                            Each patch type may require its' own fields to be set
-                            on the Patch object.
+                            Each patch type may require its own fields to be set on
+                            the Patch object.
                           enum:
                           - FromCompositeFieldPath
                           - ToCompositeFieldPath
@@ -819,7 +825,7 @@ spec:
                           type:
                             default: FromCompositeFieldPath
                             description: Type sets the patching behaviour to be used.
-                              Each patch type may require its' own fields to be set
+                              Each patch type may require its own fields to be set
                               on the Patch object.
                             enum:
                             - FromCompositeFieldPath
@@ -1211,7 +1217,7 @@ spec:
                           type:
                             default: FromCompositeFieldPath
                             description: Type sets the patching behaviour to be used.
-                              Each patch type may require its' own fields to be set
+                              Each patch type may require its own fields to be set
                               on the Patch object.
                             enum:
                             - FromCompositeFieldPath
