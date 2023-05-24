@@ -1,0 +1,8 @@
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: crossplane-critical
+value: 600000000
+globalDefault: false
+description: "This priority class should be used for scheduling the crossplane provider only."
