@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.1] - 2023-05-24
+
 ## [2.2.0] - 2023-05-09
 
 ### Added
@@ -117,7 +119,8 @@ Giant Swarm clusters
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/giantswarm/crossplane/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/giantswarm/crossplane/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/giantswarm/crossplane/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/giantswarm/crossplane/compare/v1.1.0...v2.0.0
