@@ -6,10 +6,7 @@
             "type": "object"
         },
         "args": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
+            "type": "array"
         },
         "configuration": {
             "type": "object",
@@ -32,6 +29,12 @@
             "type": "object"
         },
         "extraEnvVarsRBACManager": {
+            "type": "object"
+        },
+        "extraVolumeMountsCrossplane": {
+            "type": "object"
+        },
+        "extraVolumesCrossplane": {
             "type": "object"
         },
         "giantswarm": {
@@ -112,6 +115,23 @@
                 }
             }
         },
+        "hostNetwork": {
+            "type": "boolean"
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
         "imagePullSecrets": {
             "type": "object"
         },
@@ -170,7 +190,7 @@
                     "type": "object"
                 },
                 "args": {
-                    "type": "object"
+                    "type": "array"
                 },
                 "deploy": {
                     "type": "boolean"
@@ -196,7 +216,15 @@
             }
         },
         "registryCaBundleConfig": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "object"
+                },
+                "name": {
+                    "type": "object"
+                }
+            }
         },
         "replicas": {
             "type": "integer"
@@ -312,7 +340,7 @@
             "type": "object",
             "properties": {
                 "args": {
-                    "type": "object"
+                    "type": "array"
                 },
                 "cache": {
                     "type": "object",
@@ -336,6 +364,20 @@
                 },
                 "extraEnvVars": {
                     "type": "object"
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "repository": {
+                            "type": "string"
+                        },
+                        "tag": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "resources": {
                     "type": "object",
