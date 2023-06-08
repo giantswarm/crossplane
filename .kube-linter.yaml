@@ -1,0 +1,4 @@
+checks:
+  exclude:
+    # Ignoring this for false positive alert coming from upstream
+    - "env-var-secret"
