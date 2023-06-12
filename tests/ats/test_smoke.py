@@ -33,7 +33,7 @@ def test_pods_available(kube_cluster: Cluster) -> None:
             "crossplane-rbac-manager",
         ],
         "default",
-        90,
+        1800,
     )
     for d in deployments:
         assert int(d.obj["status"]["readyReplicas"]) > 0

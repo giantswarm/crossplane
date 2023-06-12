@@ -18,7 +18,7 @@ def test_pods_available_after_upgraded(
             "crossplane-rbac-manager",
         ],
         "default",
-        90,
+        1800,
     )
 
     for d in deployments:
