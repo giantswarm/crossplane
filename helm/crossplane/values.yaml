@@ -4,7 +4,7 @@ giantswarm:
     crossplane:
       image: giantswarm/crossplane
     xfn:
-      image: giantswarm/xfn
+      image: giantswarm/crossplane-xfn
     pullPolicy: IfNotPresent
 
   # Allows VPA to be used if it's installed in the cluster
@@ -29,13 +29,14 @@ replicas: 1
 # -- The deployment strategy for the Crossplane and RBAC Manager (if enabled) pods.
 deploymentStrategy: RollingUpdate
 
-image:
-  # -- Crossplane image.
-  repository: crossplane/crossplane
-  # -- Crossplane image tag: if not set, appVersion field from Chart.yaml is used.
-  tag: ""
-  # -- Crossplane image pull policy used in all containers.
-  pullPolicy: IfNotPresent
+# Moved to giantswarm.images
+# image:
+#  # -- Crossplane image.
+#  repository: crossplane/crossplane
+#  # -- Crossplane image tag: if not set, appVersion field from Chart.yaml is used.
+#  tag: ""
+#  # -- Crossplane image pull policy used in all containers.
+#  pullPolicy: IfNotPresent
 
 # -- Enable nodeSelector for Crossplane pod.
 nodeSelector: {}
@@ -190,11 +191,12 @@ xfn:
   # -- Enable alpha xfn sidecar container that runs Composition Functions. Note you also
   # need to run Crossplane with --enable-composition-functions for it to call xfn.
   enabled: false
+  # Moved to giantswarm.images
   # -- Image for xfn: if tag is not set appVersion field from Chart.yaml is used.
-  image:
-    repository: crossplane/xfn
-    tag: ""
-    pullPolicy: IfNotPresent
+  # image:
+  #  repository: crossplane/xfn
+  #  tag: ""
+  #  pullPolicy: IfNotPresent
   # -- List of additional args for the xfn container.
   args: []
   # -- List of additional environment variables for the xfn container.

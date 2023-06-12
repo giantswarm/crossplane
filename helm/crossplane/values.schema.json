@@ -118,20 +118,6 @@
         "hostNetwork": {
             "type": "boolean"
         },
-        "image": {
-            "type": "object",
-            "properties": {
-                "pullPolicy": {
-                    "type": "string"
-                },
-                "repository": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
-                }
-            }
-        },
         "imagePullSecrets": {
             "type": "object"
         },
@@ -364,20 +350,6 @@
                 },
                 "extraEnvVars": {
                     "type": "object"
-                },
-                "image": {
-                    "type": "object",
-                    "properties": {
-                        "pullPolicy": {
-                            "type": "string"
-                        },
-                        "repository": {
-                            "type": "string"
-                        },
-                        "tag": {
-                            "type": "string"
-                        }
-                    }
                 },
                 "resources": {
                     "type": "object",
