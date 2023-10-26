@@ -239,3 +239,6 @@ xfn:
       cpu: 1000m
       # -- Memory resource requests for RBAC Manager.
       memory: 1Gi
+
+podSecurityStandards:
+  enforced: false
