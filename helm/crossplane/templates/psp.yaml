@@ -1,3 +1,4 @@
+{{- if not .Values.podSecurityStandards.enforced }}
 {{- if .Capabilities.APIVersions.Has "policy/v1beta1/PodSecurityPolicy" -}}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
@@ -82,4 +83,5 @@ roleRef:
   kind: ClusterRole
   name: {{ template "crossplane.name" . }}-use-psp
   apiGroup: rbac.authorization.k8s.io
+{{- end }}
 {{- end }}
