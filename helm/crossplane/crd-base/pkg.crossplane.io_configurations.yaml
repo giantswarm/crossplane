@@ -2,8 +2,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.11.3
-  creationTimestamp: null
+    controller-gen.kubebuilder.io/version: v0.13.0
   name: configurations.pkg.crossplane.io
 spec:
   group: pkg.crossplane.io
@@ -145,6 +144,9 @@ spec:
                   - type
                   type: object
                 type: array
+                x-kubernetes-list-map-keys:
+                - type
+                x-kubernetes-list-type: map
               currentIdentifier:
                 description: CurrentIdentifier is the most recent package source that
                   was used to produce a revision. The package manager uses this field
