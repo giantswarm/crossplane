@@ -29,7 +29,7 @@ rules:
   - delete
   - get
   - patch
-{{- if not .Values.podSecurityStandards.enforced }}
+{{- if not (((.Values.global).podSecurityStandards).enforced) }}
 - apiGroups:
   - policy
   resources:

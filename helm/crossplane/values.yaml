@@ -201,5 +201,6 @@ extraObjects: []
   #     podSecurityContext:
   #       fsGroup: 2000
 
-podSecurityStandards:
-  enforced: false
+global:
+  podSecurityStandards:
+    enforced: false

@@ -118,6 +118,19 @@
                 }
             }
         },
+        "global": {
+            "type": "object",
+            "properties": {
+                "podSecurityStandards": {
+                    "type": "object",
+                    "properties": {
+                        "enforced": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
         "hostNetwork": {
             "type": "boolean"
         },
@@ -160,14 +173,6 @@
         },
         "podSecurityContextRBACManager": {
             "type": "object"
-        },
-        "podSecurityStandards": {
-            "type": "object",
-            "properties": {
-                "enforced": {
-                    "type": "boolean"
-                }
-            }
         },
         "priorityClassName": {
             "type": "string"
