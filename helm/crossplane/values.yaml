@@ -131,6 +131,12 @@ securityContextCrossplane:
   allowPrivilegeEscalation: false
   # -- Set the Crossplane pod root file system as read-only.
   readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+  capabilities:
+    drop:
+      - ALL
 
 packageCache:
   # -- Set to `Memory` to hold the package cache in a RAM backed file system. Useful for Crossplane development.
@@ -163,6 +169,12 @@ securityContextRBACManager:
   allowPrivilegeEscalation: false
   # -- Set the RBAC Manager pod root file system as read-only.
   readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+  capabilities:
+    drop:
+      - ALL
 
 metrics:
   # -- Enable Prometheus path, port and scrape annotations and expose port 8080 for both the Crossplane and RBAC Manager pods.

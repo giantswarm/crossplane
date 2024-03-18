@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Restrict CRD job's security context to comply with PSS.
+- Change security context defaults to comply with PSS.
+
 ## [2.4.2] - 2024-01-29
 
 ### Fixed
