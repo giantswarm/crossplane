@@ -135,8 +135,8 @@ securityContextCrossplane:
   seccompProfile:
     type: RuntimeDefault
   capabilities:
-      drop:
-        - ALL
+    drop:
+      - ALL
 
 packageCache:
   # -- Set to `Memory` to hold the package cache in a RAM backed file system. Useful for Crossplane development.
