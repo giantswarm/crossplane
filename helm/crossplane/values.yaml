@@ -172,6 +172,9 @@ securityContextRBACManager:
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
+  capabilities:
+    drop:
+      - ALL
 
 metrics:
   # -- Enable Prometheus path, port and scrape annotations and expose port 8080 for both the Crossplane and RBAC Manager pods.
@@ -189,10 +192,7 @@ extraEnvVarsRBACManager: {}
 podSecurityContextCrossplane: {}
 
 # -- Add a custom `securityContext` to the RBAC Manager pod.
-podSecurityContextRBACManager:
-  capabilities:
-    drop:
-      - ALL
+podSecurityContextRBACManager: {}
 
 # -- Add custom `volumes` to the Crossplane pod.
 extraVolumesCrossplane: {}
