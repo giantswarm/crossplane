@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.3] - 2024-03-18
+
 ### Fixed
 
 - Restrict CRD job's security context to comply with PSS.
@@ -149,7 +151,8 @@ Giant Swarm clusters
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.4.2...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.4.3...HEAD
+[2.4.3]: https://github.com/giantswarm/crossplane/compare/v2.4.2...v2.4.3
 [2.4.2]: https://github.com/giantswarm/crossplane/compare/v2.4.1...v2.4.2
 [2.4.1]: https://github.com/giantswarm/crossplane/compare/v2.4.0...v2.4.1
 [2.4.0]: https://github.com/giantswarm/crossplane/compare/v2.3.0...v2.4.0
