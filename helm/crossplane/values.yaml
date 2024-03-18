@@ -134,6 +134,9 @@ securityContextCrossplane:
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
+  capabilities:
+      drop:
+        - ALL
 
 packageCache:
   # -- Set to `Memory` to hold the package cache in a RAM backed file system. Useful for Crossplane development.
@@ -183,10 +186,7 @@ extraEnvVarsCrossplane: {}
 extraEnvVarsRBACManager: {}
 
 # -- Add a custom `securityContext` to the Crossplane pod.
-podSecurityContextCrossplane:
-  capabilities:
-    drop:
-      - ALL
+podSecurityContextCrossplane: {}
 
 # -- Add a custom `securityContext` to the RBAC Manager pod.
 podSecurityContextRBACManager:
