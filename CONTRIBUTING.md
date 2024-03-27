@@ -78,3 +78,36 @@ To update using the git-subtree method, follows this steps:
   - The above means that you *cannot* do a squash PR with commit message arbitrarly edited/removed. The recommended (for visibility) way
   is to create a merge commit PR, where there are only 3 commits present: 'subtree merge's for chart and CRDs and all your
   manual changes performed on top squashed to 1 commit
+
+### IMPORTANT
+
+In case you ever experience something like below upon executing the `git subtree merge --squash -P helm/ temp-split-branch`:
+
+```text
+fatal: could not rev-parse split hash e0fa0bf09594c6643eaa8b2b77bc8365178d0b74 from commit 52a4848f36c5365b6b335d036fcc9819cff9bfd3
+hint: hash might be a tag, try fetching it from the subtree repository:
+hint:    git fetch <subtree-repository> e0fa0bf09594c6643eaa8b2b77bc8365178d0b74
+```
+
+it most probably means that the git history of the upstream project has changed, and hence some of commits' SHAs, and now when the `git subtree split -P cluster/charts/ -b temp-split-branch` is executed, the subtree create the branch with inconsistent history in comparison to what was known to the subtree before, for the `e0fa0bf09594c6643eaa8b2b77bc8365178d0b74` from the example above no longer exists.
+
+To get out of this situation, you need to fetch the tag that has previously been used to create a split branch, then you need to use it to split another branch that will have the old git history, and then you can get back to the current `temp-split-branch` branch and proceed as usual. For Git Subtree it is enough to have the old commit under local git storage to work, it does not have to exist in the `temp-split-branch` history.
+
+So the rough steps are as follow:
+
+```text
+# fetch previous tag:
+git fetch --no-tags upstream-crossplane refs/tags/v1.9.1:refs/tags/upstream-v1.9.1
+
+# checkout to old upstream
+git checkout upstream-v1.9.1
+
+# extract previous changes and history
+git subtree split -P cluster/charts/ -b temp-split-branch-old
+
+# get back to the upgrade branch
+git checkout upgrade-to-v1.10.1
+
+# proceed with the update
+git subtree merge --squash -P helm/ temp-split-branch
+```
