@@ -44,6 +44,7 @@ spec:
           # in the pod's logs.
 
           kubectl apply --server-side -f /data/ 2>&1
+          sleep 999
         securityContext:
           capabilities:
             drop:
