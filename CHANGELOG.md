@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `crossplane` to version `v1.15.1`
+
 ## [2.4.3] - 2024-03-18
 
 ### Fixed
