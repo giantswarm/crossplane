@@ -2,5 +2,3 @@ smoke-tests-cluster-type: kind
 functional-tests-cluster-type: kind
 upgrade-tests-cluster-type: kind
 upgrade-tests-app-catalog-url: https://giantswarm.github.io/control-plane-catalog/
-smoke-tests-cluster-config-file: tests/ats/kind.config
-functional-tests-cluster-config-file: tests/ats/kind.config
