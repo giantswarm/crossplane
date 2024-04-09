@@ -1,1 +1,0 @@
-upstream sync: URL='https://github.com/crossplane/crossplane' SYNC_REF='v1.11.5' REMOTE_DIR='cluster/charts' DOWN_DIR='helm'
