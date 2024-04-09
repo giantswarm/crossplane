@@ -1,1 +1,1 @@
-updated to crossplane tag v1.11.0 - CRDs
+upstream sync: URL='https://github.com/crossplane/crossplane.git' SYNC_REF='v1.11.3' REMOTE_DIR='cluster/crds' DOWN_DIR='helm/crossplane/crd-base'
