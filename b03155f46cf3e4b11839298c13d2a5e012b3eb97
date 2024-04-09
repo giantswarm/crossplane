@@ -1,1 +1,1 @@
-updated to crossplane tag v1.11.0 - helm chart
+upstream sync: URL='https://github.com/crossplane/crossplane.git' SYNC_REF='v1.11.0' REMOTE_DIR='cluster/charts' DOWN_DIR='helm'
