@@ -1,0 +1,1 @@
+"upstream sync: URL='https://github.com/crossplane/crossplane.git' SYNC_REF='v1.15.1' REMOTE_DIR='cluster/charts' DOWN_DIR='helm/'"
