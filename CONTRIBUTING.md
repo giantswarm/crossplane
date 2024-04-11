@@ -1,5 +1,8 @@
-## Update from upstream
+[DEPRECATED]
 
+The method below is temporarily deprecated and \*\* replaced with a more automated approach we're testing now.
+
+## Update from upstream
 
 The original Helm chart is located at: https://github.com/crossplane/crossplane/tree/master/cluster/charts/crossplane.
 
@@ -8,6 +11,7 @@ Here we're using our fork of the repo, that we keep in order to make potential c
 ### Update the upstream fork repo
 
 Go to the <https://github.com/giantswarm/crossplane-upstream> repo, update it with the most recent upstream changes:
+
 ```
 # if you're checking out the repo for the first time, set up remote and fetch all changes
 git remote add -f --tags upstream https://github.com/crossplane/crossplane.git
@@ -63,21 +67,22 @@ To update using the git-subtree method, follows this steps:
   git tag -d upstream-v1.10.1
   ```
 - Do any changes necessary on top of the merged update, including necessary manual work:
+
   - When done changing the `values.yaml` (either from upstream or manually), please regenerate `values.schema.yaml`
-  with `helm schema-gen helm/crossplane/values.yaml > helm/crossplane/values.schema.json`
+    with `helm schema-gen helm/crossplane/values.yaml > helm/crossplane/values.schema.json`
   - Update the `Chart.yaml` of the App Chart in `helm/crossplane/Chart.yaml`:
     - Update `version`, `upstreamchartVersion` and `appVersion` to the upgraded Crossplane version
   - Update the `templates/_version_helper.tpl` and set manually the correct image version there (ie. "v1.10.1")
   - Check and update providers' versions defined in `values.yaml` - update them if there are new releases
 
-- Create a PR on github from `upgrade-to-v1.10.1` to `main`, *making sure you won't remove git's subtree info*!!! The subtree info is a a commit's comment that looks like
+- Create a PR on github from `upgrade-to-v1.10.1` to `main`, _making sure you won't remove git's subtree info_!!! The subtree info is a a commit's comment that looks like
   ```
     git-subtree-dir: helm
     git-subtree-split: 4e15d71f2947056172bfae8f3cee149c1cb9be0d
   ```
-  - The above means that you *cannot* do a squash PR with commit message arbitrarly edited/removed. The recommended (for visibility) way
-  is to create a merge commit PR, where there are only 3 commits present: 'subtree merge's for chart and CRDs and all your
-  manual changes performed on top squashed to 1 commit
+  - The above means that you _cannot_ do a squash PR with commit message arbitrarly edited/removed. The recommended (for visibility) way
+    is to create a merge commit PR, where there are only 3 commits present: 'subtree merge's for chart and CRDs and all your
+    manual changes performed on top squashed to 1 commit
 
 ### IMPORTANT
 

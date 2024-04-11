@@ -1,0 +1,23 @@
+name: Auto upgrade the chart from upstream
+
+on:
+  schedule:
+    - cron: "07 13 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  run_upgrade:
+    name: Run the upgrade script
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git fetch origin 'refs/notes/*:refs/notes/*'
+      - run: wget https://raw.githubusercontent.com/giantswarm/git-subtree-utils/main/ci-update-to-latest.sh
+      - run: wget https://raw.githubusercontent.com/giantswarm/git-subtree-utils/main/git-subtree-update.sh
+      - run: chmod +x ci-update-to-latest.sh git-subtree-update.sh
+      - run: git config --global user.email "action@github.com" && git config --global user.name "GitHub Action"
+      - run: ./ci-update-to-latest.sh . ${{ github.repository }}
