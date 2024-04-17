@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.5.1] - 2024-04-17
 
+### Changed
+
+- Upgrade `crossplane` to version `v1.15.2`
+
 ## [2.5.0] - 2024-03-28
 
 ### Changed
@@ -121,7 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - crossplane-contrib/provider-aws upgraded to v0.35.0
 - crossplane version extracted to `_helper_version.tpl` to avoid changing it in 4 places
 - `Secrets` access permissions are removed from the `crossplane:aggregate-to-edit` to allow for secure usage of `rbac-manager` in
-Giant Swarm clusters
+  Giant Swarm clusters
 
 ## [0.3.2] - 2023-01-03
 
