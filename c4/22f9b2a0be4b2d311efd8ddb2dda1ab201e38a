@@ -1,1 +1,1 @@
-"upstream sync: URL='https://github.com/crossplane/crossplane.git' SYNC_REF='v1.16.0-rc.1' REMOTE_DIR='cluster/crds' DOWN_DIR='helm/crossplane/crd-base/'"
+upstream sync: URL='https://github.com/crossplane/crossplane.git' SYNC_REF='v1.16.0-rc.1' REMOTE_DIR='cluster/crds' DOWN_DIR='helm/crossplane/crd-base'
