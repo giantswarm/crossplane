@@ -59,7 +59,15 @@ spec:
           - --configuration
           - "{{ $arg }}"
           {{- end }}
+<<<<<<< HEAD
           imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
+=======
+          {{- range $arg := .Values.function.packages }}
+          - --function
+          - "{{ $arg }}"
+          {{- end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+>>>>>>> e616bf75044d375f6d091f765edadb1f3033bcae
           name: {{ .Chart.Name }}-init
           resources:
             {{ include "resource.crossplane.resources" . | nindent 12 }}
