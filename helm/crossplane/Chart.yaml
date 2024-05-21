@@ -4,11 +4,8 @@ description: Crossplane is an open source Kubernetes add-on that enables platfor
 name: crossplane
 version: 2.5.1
 upstreamChartVersion: 1.15.2
-icon: https://docs.crossplane.io/android-chrome-192x192.png
-home: https://crossplane.io
-maintainers:
-  - name: Crossplane Maintainers
-    email: info@crossplane.io
+icon: https://s.giantswarm.io/app-icons/crossplane/1/light.svg
+home: https://github.com/giantswarm/crossplane
 annotations:
   application.giantswarm.io/team: "honeybadger"
   config.giantswarm.io/version: 1.x.x
