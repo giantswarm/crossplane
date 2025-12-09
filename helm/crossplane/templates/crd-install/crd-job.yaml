@@ -8,6 +8,7 @@ metadata:
     # create hook dependencies in the right order
     "helm.sh/hook-weight": "-1"
     {{- include "crdInstallAnnotations" . | nindent 4 }}
+    ignore-check.kube-linter.io/job-ttl-seconds-after-finished: "We rely on helm taking care of cleaning up"
   labels:
     app.kubernetes.io/component: {{ include "crdInstall" . | quote }}
     {{- include "labels.selector" . | nindent 4 }}
