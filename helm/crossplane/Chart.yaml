@@ -1,41 +1,42 @@
-apiVersion: v1
+apiVersion: v2
 appVersion: 1.15.2
-description: Crossplane is an open source Kubernetes add-on that enables platform teams to assemble infrastructure from multiple vendors, and expose higher level self-service APIs for application teams to consume.
+description: Crossplane is an open source Kubernetes add-on that enables platform
+  teams to assemble infrastructure from multiple vendors, and expose higher level
+  self-service APIs for application teams to consume.
 name: crossplane
 version: 2.5.1
 upstreamChartVersion: 1.15.2
 icon: https://s.giantswarm.io/app-icons/crossplane/1/light.svg
 home: https://github.com/giantswarm/crossplane
 annotations:
-  application.giantswarm.io/team: "honeybadger"
-  config.giantswarm.io/version: 1.x.x
+  io.giantswarm.application.team: honeybadger
 sources:
-  - https://github.com/crossplane/crossplane
-  - https://github.com/crossplane/crossplane-runtime
-  - https://github.com/crossplane/provider-aws
-  - https://github.com/crossplane/provider-azure
-  - https://github.com/crossplane/provider-gcp
-  - https://github.com/crossplane/provider-rook
+- https://github.com/crossplane/crossplane
+- https://github.com/crossplane/crossplane-runtime
+- https://github.com/crossplane/provider-aws
+- https://github.com/crossplane/provider-azure
+- https://github.com/crossplane/provider-gcp
+- https://github.com/crossplane/provider-rook
 keywords:
-  - cloud
-  - infrastructure
-  - services
-  - application
-  - database
-  - cache
-  - bucket
-  - infra
-  - app
-  - ops
-  - gcp
-  - azure
-  - aws
-  - alibaba
-  - cloudsql
-  - rds
-  - s3
-  - azuredatabase
-  - asparadb
-  - gke
-  - aks
-  - eks
+- cloud
+- infrastructure
+- services
+- application
+- database
+- cache
+- bucket
+- infra
+- app
+- ops
+- gcp
+- azure
+- aws
+- alibaba
+- cloudsql
+- rds
+- s3
+- azuredatabase
+- asparadb
+- gke
+- aks
+- eks
