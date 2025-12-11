@@ -169,9 +169,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.5.1...HEAD
 
-### Changed
-
-- Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/
 [2.5.1]: https://github.com/giantswarm/crossplane/compare/v2.5.0...v2.5.1
 [2.5.0]: https://github.com/giantswarm/crossplane/compare/v2.4.3...v2.5.0
 [2.4.3]: https://github.com/giantswarm/crossplane/compare/v2.4.2...v2.4.3
