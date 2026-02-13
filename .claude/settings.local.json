@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr close:*)",
+      "Bash(git notes:*)",
+      "Bash(git remote:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}
