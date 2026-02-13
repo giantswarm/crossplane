@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__github__list_tags",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(wget:*)",
+      "Bash(git checkout:*)",
+      "Bash(git pull:*)",
+      "Bash(chmod:*)",
+      "Bash(git fetch:*)",
+      "Bash(git log:*)",
+      "mcp__github__get_file_contents",
+      "Bash(git branch:*)",
+      "Bash(./ci-update-to-latest.sh:*)"
+    ]
+  }
+}
