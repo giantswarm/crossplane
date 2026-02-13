@@ -25,6 +25,9 @@
         "deploymentStrategy": {
             "type": "string"
         },
+        "dnsPolicy": {
+            "type": "string"
+        },
         "extraEnvVarsCrossplane": {
             "type": "object"
         },
@@ -39,6 +42,28 @@
         },
         "extraVolumesCrossplane": {
             "type": "object"
+        },
+        "function": {
+            "type": "object",
+            "properties": {
+                "packages": {
+                    "type": "array"
+                }
+            }
+        },
+        "functionCache": {
+            "type": "object",
+            "properties": {
+                "medium": {
+                    "type": "string"
+                },
+                "pvc": {
+                    "type": "string"
+                },
+                "sizeLimit": {
+                    "type": "string"
+                }
+            }
         },
         "giantswarm": {
             "type": "object",
@@ -135,7 +160,7 @@
             "type": "boolean"
         },
         "imagePullSecrets": {
-            "type": "object"
+            "type": "array"
         },
         "leaderElection": {
             "type": "boolean"
@@ -145,6 +170,9 @@
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                },
+                "port": {
+                    "type": "string"
                 }
             }
         },
@@ -206,11 +234,25 @@
                 "replicas": {
                     "type": "integer"
                 },
+                "revisionHistoryLimit": {
+                    "type": "null"
+                },
                 "skipAggregatedClusterRoles": {
                     "type": "boolean"
                 },
                 "tolerations": {
                     "type": "array"
+                },
+                "topologySpreadConstraints": {
+                    "type": "array"
+                }
+            }
+        },
+        "readiness": {
+            "type": "object",
+            "properties": {
+                "port": {
+                    "type": "string"
                 }
             }
         },
@@ -281,6 +323,12 @@
                     }
                 }
             }
+        },
+        "revisionHistoryLimit": {
+            "type": "null"
+        },
+        "runtimeClassName": {
+            "type": "string"
         },
         "securityContextCrossplane": {
             "type": "object",
@@ -360,7 +408,7 @@
                 }
             }
         },
-        "serviceAccount": {
+        "service": {
             "type": "object",
             "properties": {
                 "customAnnotations": {
@@ -368,7 +416,24 @@
                 }
             }
         },
+        "serviceAccount": {
+            "type": "object",
+            "properties": {
+                "create": {
+                    "type": "boolean"
+                },
+                "customAnnotations": {
+                    "type": "object"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "tolerations": {
+            "type": "array"
+        },
+        "topologySpreadConstraints": {
             "type": "array"
         },
         "webhooks": {
@@ -376,6 +441,9 @@
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                },
+                "port": {
+                    "type": "string"
                 }
             }
         }

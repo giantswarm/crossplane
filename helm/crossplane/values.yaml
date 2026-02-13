@@ -26,13 +26,16 @@ giantswarm:
 # -- The number of replicas to run for the Crossplane pods.
 replicas: 1
 
+# -- The number of Crossplane ReplicaSets to retain.
+revisionHistoryLimit: null
+
 # -- The deployment strategy for the Crossplane and RBAC Manager pods.
 deploymentStrategy: RollingUpdate
 
 # Moved to giantswarm.images
 # image:
 #  # -- Crossplane image.
-#  repository: crossplane/crossplane
+#  repository: xpkg.crossplane.io/crossplane/crossplane
 #  # -- Crossplane image tag: if not set, appVersion field from Chart.yaml is used.
 #  tag: ""
 #  # -- Crossplane image pull policy used in all containers.
@@ -44,6 +47,8 @@ nodeSelector: {}
 tolerations: []
 # -- Add `affinities` to the Crossplane pod deployment.
 affinity: {}
+# -- Add `topologySpreadConstraints` to the Crossplane pod deployment.
+topologySpreadConstraints: []
 
 # -- Enable `hostNetwork` for the Crossplane deployment. Caution: enabling `hostNetwork` grants the Crossplane Pod access to the host network namespace. Consider setting `dnsPolicy` to `ClusterFirstWithHostNet`.
 hostNetwork: false
@@ -58,6 +63,10 @@ customLabels: {}
 customAnnotations: {}
 
 serviceAccount:
+  # -- Specifies whether Crossplane ServiceAccount should be created
+  create: true
+  # -- Provide the name of an already created Crossplane ServiceAccount. Required when `serviceAccount.create` is `false`
+  name: ""
   # -- Add custom `annotations` to the Crossplane ServiceAccount.
   customAnnotations: {}
 
@@ -74,8 +83,12 @@ configuration:
   # -- A list of Configuration packages to install.
   packages: []
 
+function:
+  # -- A list of Function packages to install
+  packages: []
+
 # -- The imagePullSecret names to add to the Crossplane ServiceAccount.
-imagePullSecrets: {}
+imagePullSecrets: []
 
 registryCaBundleConfig:
   # -- The ConfigMap name containing a custom CA bundle to enable fetching packages from registries with unknown or untrusted certificates.
@@ -83,9 +96,15 @@ registryCaBundleConfig:
   # -- The ConfigMap key containing a custom CA bundle to enable fetching packages from registries with unknown or untrusted certificates.
   key: ""
 
+service:
+  # -- Configure annotations on the service object. Only enabled when webhooks.enabled = true
+  customAnnotations: {}
+
 webhooks:
   # -- Enable webhooks for Crossplane and installed Provider packages.
   enabled: true
+  # -- The port the webhook server listens on.
+  port: ""
 
 rbacManager:
   # -- Deploy the RBAC Manager pod and its required roles.
@@ -94,6 +113,8 @@ rbacManager:
   skipAggregatedClusterRoles: false
   # -- The number of RBAC Manager pod `replicas` to deploy.
   replicas: 1
+  # -- The number of RBAC Manager ReplicaSets to retain.
+  revisionHistoryLimit: null
   # -- Enable [leader election](https://docs.crossplane.io/latest/concepts/pods/#leader-election) for the RBAC Manager pod.
   leaderElection: true
   # -- Add custom arguments to the RBAC Manager pod.
@@ -104,9 +125,14 @@ rbacManager:
   tolerations: []
   # -- Add `affinities` to the RBAC Manager pod deployment.
   affinity: {}
+  # -- Add `topologySpreadConstraints` to the RBAC Manager pod deployment.
+  topologySpreadConstraints: []
 
 # -- The PriorityClass name to apply to the Crossplane and RBAC Manager pods.
 priorityClassName: ""
+
+# -- The runtimeClassName name to apply to the Crossplane and RBAC Manager pods.
+runtimeClassName: ""
 
 resourcesCrossplane:
   limits:
@@ -146,6 +172,14 @@ packageCache:
   # -- The name of a ConfigMap to use as the package cache. Disables the default package cache `emptyDir` Volume.
   configMap: ""
 
+functionCache:
+  # -- Set to `Memory` to hold the function cache in a RAM backed file system. Useful for Crossplane development.
+  medium: ""
+  # -- The size limit for the function cache. If medium is `Memory` the `sizeLimit` can't exceed Node memory.
+  sizeLimit: 512Mi
+  # -- The name of a PersistentVolumeClaim to use as the function cache. Disables the default function cache `emptyDir` Volume.
+  pvc: ""
+
 resourcesRBACManager:
   limits:
     # -- CPU resource limits for the RBAC Manager pod.
@@ -177,6 +211,12 @@ securityContextRBACManager:
 metrics:
   # -- Enable Prometheus path, port and scrape annotations and expose port 8080 for both the Crossplane and RBAC Manager pods.
   enabled: false
+  # -- The port the metrics server listens on.
+  port: ""
+
+readiness:
+  # -- The port the readyz server listens on.
+  port: ""
 
 # -- Add custom environmental variables to the Crossplane pod deployment.
 # Replaces any `.` in a variable name with `_`. For example, `SAMPLE.KEY=value1` becomes `SAMPLE_KEY=value1`.
