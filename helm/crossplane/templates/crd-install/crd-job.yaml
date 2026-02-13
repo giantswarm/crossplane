@@ -53,7 +53,7 @@ spec:
           allowPrivilegeEscalation: false
         volumeMounts:
 {{- range $path, $_ := .Files.Glob "crd-base/**" }}
-        - name: {{ $path | base | trimSuffix ".yaml" }}
+        - name: {{ $path | base | trimSuffix ".yaml" | replace "_" "-" | replace "." "-" }}
           mountPath: /data/{{ $path | base }}
           subPath: {{ $path | base }}
 {{- end }}
@@ -62,9 +62,9 @@ spec:
 {{ $currentScope := . }}
 {{- range $path, $_ := .Files.Glob "crd-base/**" }}
     {{- with $currentScope }}
-      - name: {{ $path | base | trimSuffix ".yaml" }}
+      - name: {{ $path | base | trimSuffix ".yaml" | replace "_" "-" | replace "." "-" }}
         configMap:
-          name: {{ include "crdInstall" . }}-{{ $path | base | trimSuffix ".yaml" }}
+          name: {{ include "crdInstall" . }}-{{ $path | base | trimSuffix ".yaml" | replace "_" "-" }}
           items:
           - key: content
             path: {{ $path | base }}
