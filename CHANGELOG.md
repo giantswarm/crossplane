@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `crossplane` to version `v2.4.3`. Must be upgraded from `v2.3`. Breaking changes:
+  - Package revision names now include the package `metadata.generation`: on upgrade every installed `Provider`/`Function`/`Configuration` gets a new revision and provider/function pods are restarted once.
+  - Package runtime objects (`Deployment`, `ServiceAccount`, `Service`, TLS `Secrets`) are applied with server-side apply; fields removed from a `DeploymentRuntimeConfig` are now removed from the live objects.
+  - Safe-start capable providers are scaled to zero until one of their `ManagedResourceDefinitions` is activated (new `RuntimeActive` condition).
+  - `ProviderRevision`/`FunctionRevision` printer column `RUNTIME` renamed to `RUNTIME-HEALTHY`; new `RUNTIME-ACTIVE` column.
+  - The `type` label on `engine_watches_started_total`/`engine_watches_stopped_total` changed from `ComposedResource` to `Dependency`.
+  - The Crossplane CLI is only published to `cli.crossplane.io` as `crossplane`.
+
 ## [2.10.0] - 2026-10-29
 
 ### Changed
