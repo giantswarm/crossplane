@@ -57,7 +57,9 @@ spec:
       {{- end }}
       hostNetwork: {{ .Values.hostNetwork }}
       initContainers:
-        - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
+        - name: {{ .Chart.Name }}-init
+          image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
+          imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
           args:
           - core
           - init
@@ -73,8 +75,10 @@ spec:
           - --function
           - "{{ $arg }}"
           {{- end }}
-          imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
-          name: {{ .Chart.Name }}-init
+          {{- range $arg := .Values.provider.defaultActivations }}
+          - --activation
+          - "{{ $arg }}"
+          {{- end }}
           resources:
             {{ include "resource.crossplane.resources" . | nindent 12 }}
           {{- with .Values.securityContextCrossplane }}
@@ -125,8 +129,13 @@ spec:
             value: crossplane-tls-server
           - name: "TLS_CLIENT_SECRET_NAME"
             value: crossplane-tls-client
+          {{- range $key, $value := .Values.extraEnvVarsCrossplaneInit }}
+          - name: {{ $key | replace "." "_" }}
+            value: {{ $value | quote }}
+          {{- end}}
       containers:
-      - image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.giantswarm.images.registry }}/{{ .Values.giantswarm.images.crossplane.image }}:{{ include "crossplane.version" .}}"
         args:
         - core
         - start
@@ -134,7 +143,6 @@ spec:
         - {{ $arg }}
         {{- end }}
         imagePullPolicy: {{ .Values.giantswarm.images.pullPolicy }}
-        name: {{ .Chart.Name }}
         resources:
           {{ include "resource.crossplane.resources" . | nindent 12 }}
         startupProbe:

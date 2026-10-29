@@ -31,6 +31,9 @@
         "extraEnvVarsCrossplane": {
             "type": "object"
         },
+        "extraEnvVarsCrossplaneInit": {
+            "type": "object"
+        },
         "extraEnvVarsRBACManager": {
             "type": "object"
         },
@@ -208,6 +211,9 @@
         "provider": {
             "type": "object",
             "properties": {
+                "defaultActivations": {
+                    "type": "array"
+                },
                 "packages": {
                     "type": "array"
                 }
