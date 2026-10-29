@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `crossplane` to version `v2.0.8`. This is a major upgrade; must be upgraded from `v1.20`. Breaking changes:
+  - Removed `ControllerConfig` (`pkg.crossplane.io/v1alpha1`); use `DeploymentRuntimeConfig`. The CRD is no longer shipped.
+  - Removed external secret stores (`--enable-external-secret-stores`, `secrets.crossplane.io` `StoreConfig` CRD) and composite resource connection details.
+  - Removed native patch-and-transform compositions (`mode: Resources`); only `mode: Pipeline` is supported.
+  - Removed the default registry (`--registry`): all package references must be fully qualified.
+  - Metrics renamed: `crossplane_composition_controllers_*`/`crossplane_composition_watches_*` -> `engine_*`, `crossplane_composition_run_function_*` -> `function_run_function_*`.
+  - New CRDs: `ManagedResourceDefinition`, `ManagedResourceActivationPolicy`, `ops.crossplane.io` `Operation`/`CronOperation`/`WatchOperation`, `protection.crossplane.io` `Usage`/`ClusterUsage`.
+  - New values `provider.defaultActivations` (default `["*"]`, activates all managed resources) and `extraEnvVarsCrossplaneInit`.
+
 ## [2.6.0] - 2026-10-29
 
 ### Changed
