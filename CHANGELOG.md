@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `crossplane` to version `v2.2.7`. Must be upgraded from `v2.1`. Breaking changes:
+  - Input CRDs shipped in `Function` packages are no longer installed by the package manager; unknown/disallowed objects in packages are ignored instead of failing installation.
+  - The on-disk package cache layout changed (packages are re-fetched; side-loading packages into the cache no longer works).
+  - Chart: removed the leftover external secret store wiring (`ess-server-certs` Secret); new values `secrets.customAnnotations` and `sidecarsCrossplane`; `extraVolumesCrossplane`/`extraVolumeMountsCrossplane` support template expressions.
+
 ## [2.8.0] - 2026-10-29
 
 ### Changed

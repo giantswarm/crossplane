@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: 2.1.8
+appVersion: 2.2.7
 description: Crossplane is an open source Kubernetes add-on that enables platform teams to assemble infrastructure from multiple vendors, and expose higher level self-service APIs for application teams to consume.
 name: crossplane
 version: 2.8.0
-upstreamChartVersion: 2.1.8
+upstreamChartVersion: 2.2.7
 icon: https://s.giantswarm.io/app-icons/crossplane/1/light.svg
 home: https://github.com/giantswarm/crossplane
 annotations:

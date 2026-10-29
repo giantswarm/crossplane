@@ -336,6 +336,14 @@
         "runtimeClassName": {
             "type": "string"
         },
+        "secrets": {
+            "type": "object",
+            "properties": {
+                "customAnnotations": {
+                    "type": "object"
+                }
+            }
+        },
         "securityContextCrossplane": {
             "type": "object",
             "properties": {
@@ -435,6 +443,9 @@
                     "type": "string"
                 }
             }
+        },
+        "sidecarsCrossplane": {
+            "type": "array"
         },
         "tolerations": {
             "type": "array"
