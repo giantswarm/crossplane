@@ -49,7 +49,7 @@ serviceAccount:
   # -- Add custom `annotations` to the Crossplane ServiceAccount.
   customAnnotations: {}
 
-# -- Enable [leader election](https://docs.crossplane.io/latest/concepts/pods/#leader-election) for the Crossplane pod.
+# -- Enable [leader election](https://docs.crossplane.io/latest/guides/pods/#leader-election) for the Crossplane pod.
 leaderElection: true
 # -- Add custom arguments to the Crossplane pod.
 args: []
@@ -81,6 +81,10 @@ service:
   # -- Configure annotations on the service object. Only enabled when webhooks.enabled = true
   customAnnotations: {}
 
+secrets:
+  # -- Add custom annotations to Crossplane Secret resources.
+  customAnnotations: {}
+
 webhooks:
   # -- Enable webhooks for Crossplane and installed Provider packages.
   enabled: true
@@ -96,7 +100,7 @@ rbacManager:
   replicas: 1
   # -- The number of RBAC Manager ReplicaSets to retain.
   revisionHistoryLimit: null
-  # -- Enable [leader election](https://docs.crossplane.io/latest/concepts/pods/#leader-election) for the RBAC Manager pod.
+  # -- Enable [leader election](https://docs.crossplane.io/latest/guides/pods/#leader-election) for the RBAC Manager pod.
   leaderElection: true
   # -- Add custom arguments to the RBAC Manager pod.
   args: []
@@ -205,11 +209,14 @@ podSecurityContextCrossplane: {}
 # -- Add a custom `securityContext` to the RBAC Manager pod.
 podSecurityContextRBACManager: {}
 
-# -- Add custom `volumes` to the Crossplane pod.
+# -- Add custom `volumes` to the Crossplane pod. Supports template expressions.
 extraVolumesCrossplane: {}
 
-# -- Add custom `volumeMounts` to the Crossplane pod.
+# -- Add custom `volumeMounts` to the Crossplane pod. Supports template expressions.
 extraVolumeMountsCrossplane: {}
+
+# -- Add sidecar containers to the Crossplane pod. Supports template expressions.
+sidecarsCrossplane: []
 
 # -- To add arbitrary Kubernetes Objects during a Helm Install
 extraObjects: []
