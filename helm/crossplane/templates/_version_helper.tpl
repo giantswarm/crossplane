@@ -1,3 +1,3 @@
 {{- define "crossplane.version" -}}
-v2.3.7
+v2.4.3
 {{- end -}}
