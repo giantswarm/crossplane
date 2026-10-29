@@ -12,12 +12,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade `crossplane` to version `v2.3.7`. Must be upgraded from `v2.2`. Breaking changes:
   - The Crossplane CLI moved to its own repository (`crossplane/cli`) with a noun-first command tree (e.g. `crossplane beta trace` is now `crossplane resource trace`).
   - Crossplane Go APIs moved to the separate module `github.com/crossplane/crossplane/apis/v2` (affects Go consumers only).
+
+## [2.9.0] - 2026-10-29
+
+### Changed
+
 - Upgrade `crossplane` to version `v2.2.7`. Must be upgraded from `v2.1`. Breaking changes:
   - Input CRDs shipped in `Function` packages are no longer installed by the package manager; unknown/disallowed objects in packages are ignored instead of failing installation.
   - The on-disk package cache layout changed (packages are re-fetched; side-loading packages into the cache no longer works).
   - Chart: removed the leftover external secret store wiring (`ess-server-certs` Secret); new values `secrets.customAnnotations` and `sidecarsCrossplane`; `extraVolumesCrossplane`/`extraVolumeMountsCrossplane` support template expressions.
+
+## [2.8.0] - 2026-10-29
+
+### Changed
+
 - Upgrade `crossplane` to version `v2.1.8`. Must be upgraded from `v2.0`. Breaking changes:
   - Crossplane's custom and client-side rate limiting were removed in favour of API Priority and Fairness plus a per-XR circuit breaker. `--max-reconcile-rate` is now an alias of `--max-concurrent-reconciles` (worker pool size).
+
+## [2.7.0] - 2026-10-29
+
+### Changed
+
 - Upgrade `crossplane` to version `v2.0.8`. This is a major upgrade; must be upgraded from `v1.20`. Breaking changes:
   - Removed `ControllerConfig` (`pkg.crossplane.io/v1alpha1`); use `DeploymentRuntimeConfig`. The CRD is no longer shipped.
   - Removed external secret stores (`--enable-external-secret-stores`, `secrets.crossplane.io` `StoreConfig` CRD) and composite resource connection details.
@@ -199,7 +214,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.9.0...HEAD
+[2.9.0]: https://github.com/giantswarm/crossplane/compare/v2.8.0...v2.9.0
+[2.8.0]: https://github.com/giantswarm/crossplane/compare/v2.7.0...v2.8.0
+[2.7.0]: https://github.com/giantswarm/crossplane/compare/v2.6.0...v2.7.0
 [2.6.0]: https://github.com/giantswarm/crossplane/compare/v2.5.2...v2.6.0
 [2.5.2]: https://github.com/giantswarm/crossplane/compare/v2.5.1...v2.5.2
 [2.5.1]: https://github.com/giantswarm/crossplane/compare/v2.5.0...v2.5.1
