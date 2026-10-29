@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `crossplane` to version `v2.3.7`. Must be upgraded from `v2.2`. Breaking changes:
+  - The Crossplane CLI moved to its own repository (`crossplane/cli`) with a noun-first command tree (e.g. `crossplane beta trace` is now `crossplane resource trace`).
+  - Crossplane Go APIs moved to the separate module `github.com/crossplane/crossplane/apis/v2` (affects Go consumers only).
+
 ## [2.9.0] - 2026-10-29
 
 ### Changed
