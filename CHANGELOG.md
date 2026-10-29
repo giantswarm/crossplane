@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Upgrade `crossplane` to version `v2.2.7`. Must be upgraded from `v2.1`. Breaking changes:
+  - Input CRDs shipped in `Function` packages are no longer installed by the package manager; unknown/disallowed objects in packages are ignored instead of failing installation.
+  - The on-disk package cache layout changed (packages are re-fetched; side-loading packages into the cache no longer works).
+  - Chart: removed the leftover external secret store wiring (`ess-server-certs` Secret); new values `secrets.customAnnotations` and `sidecarsCrossplane`; `extraVolumesCrossplane`/`extraVolumeMountsCrossplane` support template expressions.
 - Upgrade `crossplane` to version `v2.1.8`. Must be upgraded from `v2.0`. Breaking changes:
   - Crossplane's custom and client-side rate limiting were removed in favour of API Priority and Fairness plus a per-XR circuit breaker. `--max-reconcile-rate` is now an alias of `--max-concurrent-reconciles` (worker pool size).
 - Upgrade `crossplane` to version `v2.0.8`. This is a major upgrade; must be upgraded from `v1.20`. Breaking changes:
