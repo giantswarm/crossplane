@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Upgrade `crossplane` to version `v2.1.8`. Must be upgraded from `v2.0`. Breaking changes:
   - Crossplane's custom and client-side rate limiting were removed in favour of API Priority and Fairness plus a per-XR circuit breaker. `--max-reconcile-rate` is now an alias of `--max-concurrent-reconciles` (worker pool size).
+
+## [2.7.0] - 2026-10-29
+
+### Changed
+
 - Upgrade `crossplane` to version `v2.0.8`. This is a major upgrade; must be upgraded from `v1.20`. Breaking changes:
   - Removed `ControllerConfig` (`pkg.crossplane.io/v1alpha1`); use `DeploymentRuntimeConfig`. The CRD is no longer shipped.
   - Removed external secret stores (`--enable-external-secret-stores`, `secrets.crossplane.io` `StoreConfig` CRD) and composite resource connection details.
@@ -192,7 +197,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.7.0...HEAD
+[2.7.0]: https://github.com/giantswarm/crossplane/compare/v2.6.0...v2.7.0
 [2.6.0]: https://github.com/giantswarm/crossplane/compare/v2.5.2...v2.6.0
 [2.5.2]: https://github.com/giantswarm/crossplane/compare/v2.5.1...v2.5.2
 [2.5.1]: https://github.com/giantswarm/crossplane/compare/v2.5.0...v2.5.1
