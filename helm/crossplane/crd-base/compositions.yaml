@@ -3,7 +3,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.19.0
+    controller-gen.kubebuilder.io/version: v0.20.1
   name: compositions.apiextensions.crossplane.io
 spec:
   group: apiextensions.crossplane.io
@@ -36,7 +36,7 @@ spec:
           Crossplane uses to create and manage new composite resources.
 
           Read the Crossplane documentation for
-          [more information about Compositions](https://docs.crossplane.io/latest/concepts/compositions).
+          [more information about Compositions](https://docs.crossplane.io/latest/composition/compositions/).
         properties:
           apiVersion:
             description: |-
@@ -208,6 +208,36 @@ spec:
                             x-kubernetes-validations:
                             - message: name and matchLabels are mutually exclusive
                               rule: '!(has(self.name) && has(self.matchLabels))'
+                          type: array
+                          x-kubernetes-list-map-keys:
+                          - requirementName
+                          x-kubernetes-list-type: map
+                        requiredSchemas:
+                          description: |-
+                            RequiredSchemas is a list of OpenAPI schemas that must be fetched before
+                            this function is called.
+                          items:
+                            description: RequiredSchemaSelector selects a required
+                              OpenAPI schema.
+                            properties:
+                              apiVersion:
+                                description: APIVersion of the resource kind whose
+                                  schema is required, e.g. "example.org/v1".
+                                type: string
+                              kind:
+                                description: Kind of resource whose schema is required,
+                                  e.g. "MyResource".
+                                type: string
+                              requirementName:
+                                description: |-
+                                  RequirementName is the unique name to identify this required schema
+                                  in the Required Schemas map in the function request.
+                                type: string
+                            required:
+                            - apiVersion
+                            - kind
+                            - requirementName
+                            type: object
                           type: array
                           x-kubernetes-list-map-keys:
                           - requirementName
