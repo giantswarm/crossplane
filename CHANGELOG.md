@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade `crossplane` to version `v2.1.8`. Must be upgraded from `v2.0`. Breaking changes:
+  - Crossplane's custom and client-side rate limiting were removed in favour of API Priority and Fairness plus a per-XR circuit breaker. `--max-reconcile-rate` is now an alias of `--max-concurrent-reconciles` (worker pool size).
+
 ## [2.7.0] - 2026-10-29
 
 ### Changed
