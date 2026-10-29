@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.11.0] - 2026-10-29
+
 ### Changed
 
 - Upgrade `crossplane` to version `v2.4.3`. Must be upgraded from `v2.3`. Breaking changes:
@@ -226,7 +228,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update `crossplane` chart to `v1.9.1`
 
-[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.10.0...HEAD
+[Unreleased]: https://github.com/giantswarm/crossplane/compare/v2.11.0...HEAD
+[2.11.0]: https://github.com/giantswarm/crossplane/compare/v2.10.0...v2.11.0
 [2.10.0]: https://github.com/giantswarm/crossplane/compare/v2.9.0...v2.10.0
 [2.9.0]: https://github.com/giantswarm/crossplane/compare/v2.8.0...v2.9.0
 [2.8.0]: https://github.com/giantswarm/crossplane/compare/v2.7.0...v2.8.0
