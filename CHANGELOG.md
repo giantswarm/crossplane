@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CI: architect orb 10.16.7, which pushes the chart to the git app catalogs with the architect GitHub App instead of the `catalogbot` account (giantswarm/giantswarm#34786).
 - Upgrade `crossplane` to version `v2.4.3`. Must be upgraded from `v2.3`. Breaking changes:
   - Package revision names now include the package `metadata.generation`: on upgrade every installed `Provider`/`Function`/`Configuration` gets a new revision and provider/function pods are restarted once.
   - Package runtime objects (`Deployment`, `ServiceAccount`, `Service`, TLS `Secrets`) are applied with server-side apply; fields removed from a `DeploymentRuntimeConfig` are now removed from the live objects.
