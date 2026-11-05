@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CI: architect orb 10.16.7, which pushes the chart to the git app catalogs with the architect GitHub App instead of the `catalogbot` account (giantswarm/giantswarm#34786).
 - Upgrade `crossplane` to version `v2.0.8`. This is a major upgrade; must be upgraded from `v1.20`. Breaking changes:
   - Removed `ControllerConfig` (`pkg.crossplane.io/v1alpha1`); use `DeploymentRuntimeConfig`. The CRD is no longer shipped.
   - Removed external secret stores (`--enable-external-secret-stores`, `secrets.crossplane.io` `StoreConfig` CRD) and composite resource connection details.
