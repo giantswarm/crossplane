@@ -7,6 +7,8 @@ upstreamChartVersion: 2.4.3
 icon: https://s.giantswarm.io/app-icons/crossplane/1/light.svg
 home: https://github.com/giantswarm/crossplane
 annotations:
+  io.giantswarm.application.audience: all
+  io.giantswarm.application.managed: "true"
   io.giantswarm.application.team: honeybadger
 sources:
   - https://github.com/crossplane/crossplane
