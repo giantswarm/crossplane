@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Add the `io.giantswarm.application.audience` and `io.giantswarm.application.managed` annotations to `Chart.yaml`, as the chart metadata standard requires: customers use Crossplane's APIs on management clusters, which Giant Swarm operates.
+
 ## [2.11.0] - 2026-10-29
 
 ### Changed
